@@ -8,22 +8,26 @@
     <style>
         .hl_1 {
             background-color: gray;
-            margin: 10px;
             padding: 20px;
-            border: 3px solid red;
-            width: 100px;
-            height: 200px;
+            border: 5px solid red;
+            width: 150px;
+            height: 150px;
             box-sizing: border-box;
+            font-size: 20px;
         }
         .hl_2 {
             background-color: gray;
-            margin: 10px;
             padding: 20px;
-            border: 3px solid red;
-            width: 100px;
-            height: 200px;
+            border: 5px solid red;
+            width: 150px;
+            height: 150px;
             box-sizing: content-box;
+            font-size: 20px;
         }
+        .div_3 {
+            box-shadow: 10px 10px 30px 5px #000;
+        }
+        /* 색깔 뒤에 instet 넣으면 박스 안으로 그림자 들어가기 설정 */
         span {
             background-color: aqua;
         }
@@ -31,9 +35,12 @@
     </style>
 </head>
 <body>
-    <h1 class="hl_1">박스 모델</h1>
+    <h1 class="hl_1">박스 모델(border-box)</h1>
     <hr>
-    <h1 class="hl_2">박스 모델</h1>
+    <h1 class="hl_2">박스 모델(content-box)</h1>
+    <br>
+    <br>
+    <div class="div_3">박스모델(그림자 효과)</div>
     <br>
     <br>
 
