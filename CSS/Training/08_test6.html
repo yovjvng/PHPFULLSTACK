@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            border: 1px solid #000;
+            width: 700px;
+            height: 700px;
+            /* position: relative; */
+        }
+        .static, .relative_1, .relative_2 {
+            width: 500px;
+            border: 1px solid #000;
+            background-color: #efefef;
+        }
+        .static {
+            position: static;
+        }
+        .relative_1 {
+            position: relative;
+        }
+        .relative_2 {
+            position: relative;
+            top: -20px;
+            left: 50px;
+        }
+        .fixed {
+            position: fixed;
+            top: 3%;
+            right: 10%;
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <p class="static">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quidem iusto nisi libero accusantium quos, accusamus inventore commodi 
+            perferendis vel possimus laboriosam! Laudantium cum rem corporis soluta
+            doloribus perferendis commodi delectus.
+        </p>
+        <p class="relative_1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quidem iusto nisi libero accusantium quos, accusamus inventore commodi 
+            perferendis vel possimus laboriosam! Laudantium cum rem corporis soluta
+            doloribus perferendis commodi delectus.
+        </p>
+        <p class="relative_2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quidem iusto nisi libero accusantium quos, accusamus inventore commodi 
+            perferendis vel possimus laboriosam! Laudantium cum rem corporis soluta
+            doloribus perferendis commodi delectus.
+        </p>
+        <p class="fixed"></p>
+    </div>
+</body>
+</html>

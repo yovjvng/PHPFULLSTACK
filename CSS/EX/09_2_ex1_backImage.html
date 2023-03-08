@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backImage</title>
+    <style>
+        /* body {
+            background-image: url(./img/rabbit.jpg);
+        } */
+        .div_img {
+            width: 600px;
+            height: 500px;
+            background-image: url("./img/rabbit.jpg"), url(./img/cat.jpg);
+        }
+        .div_repeat {
+            border: 1px solid #000;
+            width: 1000px;
+            height: 1000px;
+            background-image: url(./img/cat.jpg);
+            background-repeat: repeat;
+        }
+
+        .div_position {
+            border: 1px solid #000;
+            width: 600px;
+            height: 600px;
+            background-image: url(./img/poppy.jpg);
+            background-repeat: no-repeat;
+            /* background-position: bottom 100px right 100px; */
+            background-size: contain;
+        }
+        .at_img {
+            background-image: url(./img/penguin.jpg);
+            background-attachment: scroll;
+            width: 150px;
+            height: 200px;
+            display: inline-block;
+            border: 1px solid #000;
+            overflow: scroll;
+            background-size: 80%;
+        }
+        .div_img_scroll {
+            background-attachment: scroll;
+        }
+        .div_img_fixed {
+            background-attachment: fixed;
+        }
+        .div_img_local {
+            background-attachment: local;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>background-image</h1>
+    <div class="div_img"></div>
+
+    <h1>background-repeat</h1>
+    <div class="div_repeat"></div>
+
+    <h1>background-position</h1>
+    <div class="div_position"></div>
+
+    <div style="height : 200px"></div>
+    <div class="div_img_scroll at_img">
+        문명이 출현하면서 사회집단 또는 부족에 따라서 전통적인 요리법이 정착되기 시작했다. 
+        기후, 토양, 동물 분포와 같은 지역적인 요인에 따라서 서로 다른 전통이 만들어졌다. 
+    </div>
+    <div class="div_img_fixed at_img">
+        문명이 출현하면서 사회집단 또는 부족에 따라서 전통적인 요리법이 정착되기 시작했다. 
+        기후, 토양, 동물 분포와 같은 지역적인 요인에 따라서 서로 다른 전통이 만들어졌다.
+    </div>
+    <div class="div_img_local at_img">
+        문명이 출현하면서 사회집단 또는 부족에 따라서 전통적인 요리법이 정착되기 시작했다. 
+        기후, 토양, 동물 분포와 같은 지역적인 요인에 따라서 서로 다른 전통이 만들어졌다.
+    </div>
+</body>
+</html>
