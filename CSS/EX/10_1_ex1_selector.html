@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector</title>
+    <style>
+        span {
+            display: block;
+        }
+        /* 상위요소 하위요소 : 상위요소에 포함된 모든 하위요소에 적용 */
+        header span {
+            color: aquamarine;
+        }
+
+        /* 부모요소 > 하위요소 : 부모요소의 자식요소에게만 적용 */
+        header > span {
+            color: blueviolet;
+        }
+
+        span + p {
+            color: cadetblue;
+        }
+        .div3 ~ span {
+            color: coral;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <span>header - div - span</span>
+        </div>
+        <span>header - span</span>
+    </header>
+    <br><br>
+
+    <main>
+        <div>
+            <span>header - div - span</span>
+        </div>
+        <span>header - span1</span>
+        <p>header - p1</p>
+        <span>header - span2</span>
+        <span>header - span3</span>
+    </main>
+
+    <main>
+        <div class="div3">
+            <span>header - div - span</span>
+        </div>
+        <span>header - span1</span>
+        <p>header - p1</p>
+        <span>header - span2</span>
+        <span>header - span3</span>
+    </main>
+
+    <span>span</span>
+</body>
+</html>

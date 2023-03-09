@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+      
+        fieldset{
+            padding: 10px;
+            width: 550px;
+            height: 400px;
+            margin: 0 auto;
+            background-image: url(./teddy.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        legend {
+            color: #df12bd;
+            font-size: 40px;
+            font-weight: bolder;
+        }
+        input, textarea {
+            background-color:transparent;
+        }
+        .point::before {
+            content: '*';
+            color: red;
+        }
+        label {
+            font-weight: 900;
+        }
+       
+        .con4 label {
+            vertical-align: top;
+        }
+        input:focus {
+            outline: none;
+            border: 2px solid rgb(11, 184, 118);
+        }
+        textarea:focus {
+            outline: none;
+            border: 2px solid rgb(11, 184, 118);
+        }
+        input:hover {
+            background-color: #efefef;
+        }
+        input:checked + .bw {
+            color: #df12bd;
+        }
+        p {
+            margin: 0;
+            position: relative;
+            bottom: 25px;
+            left: 55px;
+            width: 250px;
+            background-color: #333;
+            color: #ffffff;
+            display: none;
+        }
+        button:hover + p {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>I want YOU!</legend>
+            <div class="con1">
+                <label for="name" class="point">이름</label>
+                <input type="text" id="name" autofocus required>
+            </div>
+            <br>
+            <div class="con2">
+                <label for="age" class="point">나이</label>
+                <input type="number" id="age" required min="20">
+            </div>
+            <br>
+            <div class="con3">
+                <label for="wb" class="point">성별</label>
+                <input type="radio" name="wb" id="wb" required>
+                <label for="wb" class="bw">남자</label>
+                <input type="radio" name="wb" id="wb2" required>
+                <label for="wb2" class="bw">여자</label>
+            </div>
+            <br>
+            <div class="con4">
+                <label for="textbox">요청사항</label>
+                <textarea name="memo" id="textbox" cols="30" rows="10" placeholder="요청 사항 입력"></textarea>
+            </div>
+            <br>
+            <button type="submit" > 보내기</button>
+            <p>내용을 다시 한 번 확인해 주세요.</p>
+            
+
+        </fieldset>
+    </form>
+</body>
+</html>
