@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+/* 반응형 */
+
+@media ( min-width : 500px ) {
+    p {
+        background-color:aquamarine;
+    }
+}
+
+@media ( min-width : 901px ) {
+    p {
+        background-color: violet;
+    }
+}
+
+@media ( min-width : 701px ) {
+    p {
+        background-color: cadetblue;
+    }
+}

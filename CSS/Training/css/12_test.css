@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.wrap {
+    margin: 10px;
+    width: 600px;
+}
+
+.main1 {
+    border: 1px solid #c2bfbf;
+    margin: 20px;
+    width: 500px;
+}
+
+.content {
+    display: flex;
+    width: 400px;
+    height: 80px;
+    border: 1px solid #c2bfbf;
+    padding: 5px;
+    margin: 10px;
+}
+h3 {
+    color: rgb(76, 111, 228);
+}
+img {
+    width: 50px;
+}
+.icon {
+    padding: 10px;
+    width: 50px;
+    border: 2px solid rgb(102, 102, 102);
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 0;
+}
+.con {
+    padding: 10px;
+}
+/* .icon::after {
+    content: '';
+    top: 0;
+    left: 0;
+    border-right: 2px solid #333;
+    width: 50px;
+    height: 50px;
+} */
+
+.main2 {
+    border: 1px solid #c2bfbf;
+    margin: 20px;
+    width: 700px;
+}
+
+.wiki {
+    font-weight: 800;
+    background-color: #efefef;
+    padding: 10px;
+    margin: 5px 0;
+    width: 150px;
+    color: rgb(76, 111, 228);
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+}
