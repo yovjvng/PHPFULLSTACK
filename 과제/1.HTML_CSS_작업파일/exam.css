@@ -1,0 +1,213 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:200,400');
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+      
+
+        *{
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        p,
+        a {
+            text-decoration: none;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .wrapper {
+            width: 100vw;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .hero {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px;
+            
+        }
+        .hero h1 {
+            color: white;
+            font-size: 50px;
+            font-weight: 800;
+            padding: 0 20px;
+        }
+        article {
+            width: 600px;
+            padding: 30px;
+        }
+        article p {
+            color: white;
+            font-size: 18px;
+            line-height: 25px;
+            padding: 0 30px 30px 0;
+    
+        }
+        article a {
+            width: 80px;
+            background-color: goldenrod;
+            border-radius: 5px;
+            color: white;
+            padding: 10px;
+        }
+        article a:hover {
+            opacity: 0.5;
+        }
+        .breweries {
+            height: 500px;
+            position: relative;
+            flex-wrap: wrap;
+            max-width: 1800px;
+            margin: 10px auto;
+        }
+
+        .breweries ul {
+            min-height: 380px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+        .breweries ul li {
+            position: relative;
+            list-style: none;
+            border: 1px solid #b3b0b0;
+            border-radius: 15px;
+            padding: 10px;
+            min-height: 350px;
+            flex-basis: 150px;
+            flex-grow: 1;
+            margin: 10px;
+        }
+        /* .breweries ul li > *{
+            flex-grow: 0;
+        } */
+        figure {
+            width: 250px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        figure img {
+           width: 250px;
+           border-top-left-radius: 15px;
+           border-top-right-radius: 15px;
+        }
+
+        figcaption {
+            width: 230px;
+            background-color: rgba(29, 28, 28, 0.7);
+            padding: 20px 10px;
+            position: absolute;
+            bottom: 3px;
+        }
+        figcaption h3 {
+            color: white;
+        }
+        .breweries ul li p {
+            margin: 20px 0;
+        }
+        .breweries ul li a {
+            position: absolute;
+            bottom: 0;
+            padding: 10px;
+            background-color: goldenrod;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .breweries ul li a:hover {
+            opacity: 0.5;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            /* z-index: -1; */
+        }
+
+
+
+
+
+
+
+        
+        /* 반응형 */
+
+
+
+        /* @media screen and (max-width:1700px) {
+            .wrapper {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width:1400px) {
+            .breweries ul {
+                flex-wrap: wrap;
+            }
+            .breweries ul li {
+                width: calc(100% / 4);
+                width: 300px;
+            }
+        }
+
+         @media screen and (max-width:1000px) {
+            .hero h1 {
+                padding: 20px;
+                text-align: center;
+            }
+            .hero article {
+                width: 500px;
+            }
+            .breweries ul {
+                width: 900px;
+            }
+            .breweries ul li {
+                width: calc(100% / 3);
+            }
+            footer {
+                margin-bottom: 0;
+            }
+        } 
+
+        @media screen and (max-width:700px) {
+            .hero {
+                display: block;
+            }
+            article p {
+                margin: 10px;
+            }
+            article a {
+                margin: 10px;
+            }
+            
+            
+        }
+
+        @media screen and (max-width:699px) {
+
+            .hero h1 {
+                padding: 20px;
+                text-align: center;
+            }
+            .breweries ul li {
+                width: calc(100% / 2);
+            }
+        } */
