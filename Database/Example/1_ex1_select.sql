@@ -44,7 +44,7 @@ WHERE emp_no in
 					AND to_date >= NOW() 
 				);
 		
-		
+
 		
 					
 
