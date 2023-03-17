@@ -44,7 +44,8 @@ FROM employees emp
 		ON dep.dept_no = depm.dept_no;
 
 5.
-SELECT  emp.emp_no, CONCAT(last_name, ' ', first_name) AS fullname, sal.salary, DENSE_RANK() OVER(ORDER BY salary ASC)
+-- 첫번째방법
+SELECT  emp.emp_no, CONCAT(last_name, ' ', first_name) AS fullname, sal.salary
 FROM employees emp
 	INNER JOIN salaries sal
 		ON emp.emp_no = sal.emp_no
@@ -53,30 +54,38 @@ WHERE sal.to_date >= NOW()
 LIMIT 10
 ;
 
+-- 두번째 방법
+SELECT a.*
+FROM (
+	SELECT emp.emp_no, CONCAT(emp.first_name, ' ' , emp.last_name) fullname, salary, RANK() over (ORDER BY salary DESC) rn
+	FROM employees emp
+		INNER JOIN salaries sal
+			ON emp.emp_no = sal.emp_no
+	WHERE sal.to_date >= NOW()) a
+WHERE a.rn <= 10;	
+ 
 
-SELECT emp_no, RANK() OVER(ORDER BY salary ASC), salary
-FROM salaries;
 
-6.
+6. **
 
-SELECT dept.dept_name, CONCAT(last_name, ' ', first_name) AS fullname, emp.hire_date
-FROM employees emp
+SELECT dept.dept_name, CONCAT(last_name, ' ', first_name) fullname, emp.hire_date
+FROM departments dept
 	INNER JOIN dept_manager depm
-	ON emp.emp_no = depm.emp_no
-	INNER JOIN departments dept
 	ON dept.dept_no = depm.dept_no
-	GROUP BY dept.dept_name
-	HAVING COUNT(depm.to_date = '9999-01-01');
-	
-	
-	
+	INNER JOIN employees emp
+	ON emp.emp_no = depm.emp_no
+WHERE depm.to_date >= NOW();
+
+		
 7.
 SELECT tit.title, AVG(salary) AS sal
 FROM titles tit
 	INNER JOIN salaries sal
-	ON tit.emp_no = sal.emp_no
+		ON tit.emp_no = sal.emp_no
 WHERE tit.title = 'Staff'
- AND sal.to_date >= NOW();
+ AND sal.to_date >= NOW()
+ AND tit.to_date >= NOW();
+ 
 
 8.
 SELECT CONCAT(last_name, ' ', first_name) AS fullname, emp.hire_date, emp.emp_no, depm.dept_no
@@ -84,17 +93,31 @@ FROM employees emp
 	INNER JOIN dept_manager depm
 	ON emp.emp_no = depm.emp_no
 WHERE depm.to_date < '9999-01-01'
+-- WHERE depm.to_date != '9999-01-01'   != 다르다은 의미
 ;
 
 
-9. -- 과거도 나옴 월급 평균 수정
-SELECT tit.title, CAST(salary AS  INTEGER) AS sal  
+9. 
+SELECT tit.title, CAST(AVG(salary) AS INT) a
 FROM titles tit
 	INNER JOIN salaries sal
 		ON tit.emp_no = sal.emp_no
-WHERE AVG(sal.salary) >= 60000
-GROUP BY tit.title
-ORDER BY sal.salary DESC;
+WHERE sal.to_date = DATE(99990101)
+	AND tit.to_date = DATE(99990101)
+GROUP BY tit.title HAVING a >= 60000
+ORDER BY a DESC;
+
+
+
+
+SELECT tit.title, TRUNCATE(AVG(salary), 0) avg_s
+FROM titles tit
+	INNER JOIN salaries sal
+	ON sal.emp_no = tit.emp_no
+WHERE tit.to_date = DATE(99990101)
+AND sal.to_date = DATE(99990101)
+GROUP BY tit.title HAVING avg_s >=60000
+ORDER BY avg_s DESC ;	
 
 
 10.
@@ -103,8 +126,10 @@ FROM employees emp
 	INNER JOIN titles tit
 		ON emp.emp_no = tit.emp_no
 WHERE emp.gender = 'F'
+  AND tit.to_date = DATE(99990101)
 GROUP BY tit.title;
 	
+
 
 11.
 SELECT tit.title, COUNT(employee)
