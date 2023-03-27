@@ -56,19 +56,35 @@
 //     echo "\n";
 // }
 
-$num = 10;
-for ($i = 1; $i < $num; $i++)
+
+for($i=1; $i < 6; $i++)
 {
-    for ($k = $num-$i; $k > 0 ; $k--)
+    for($p=5; $i < $p; $p--)
     {
         echo " ";
     }
-    for ($p = 0; $p < 2*$i-1; $p++)
-        {
-            echo "*";
-        }
-        echo "\n";
+    for($p=0; $i > $p; $p++)
+    {
+        echo "*";
+    }
+    echo"\n";
 }
+
+
+
+// $num = 10;
+// for ($i = 1; $i < $num; $i++)
+// {
+//     for ($k = $num-$i; $k > 0 ; $k--)
+//     {
+//         echo " ";
+//     }
+//     for ($p = 0; $p < 2*$i-1; $p++)
+//         {
+//             echo "*";
+//         }
+//         echo "\n";
+// }
 
 
 
