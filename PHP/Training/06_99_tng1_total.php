@@ -36,7 +36,7 @@
 
 function print_star($a)
 {
-    for ($i = 0; $i < $a; $i++)
+    for ($b = 0; $b < $a; $b++)
     {
         echo "*";
     }
@@ -62,7 +62,75 @@ function print_star_rect($a)
 }
 
 
-print_star_rect(4);    
+print_star_rect(4); 
+
+// function print_star_rect($d)
+// {
+//     for ($i=1; $i <= $d; $i++) { 
+//         print_star($i);
+//     }
+// }
+
+// print_star_rect(5);
+
+
+function star($c)
+{
+    for($a=0; $a<$c; $a++)
+    {
+        echo "*";
+    }
+    echo"\n";
+}
+
+// function print_star($d)
+// {
+//     for ($b=1; $b <= $d; $b++) { 
+//         star($b);
+//     }
+// }
+// print_star(5);
+
+// function star($c)
+// {
+//     for ($j=0; $j < $c; $J++) { 
+//         star($c);
+//     }
+// }
+// print_star_rect(4);
+
+
+
+
+
+
+
+
+//void 함수 (리턴값이 없는)
+
+// function sum($n1, $n2)
+// {
+//     echo $n1 + $n2;
+//     return;
+// }
+
+
+//return 함수 (리턴값이 있는)
+// function sum2($n1, $n2)
+// {
+//     return $n1 + $n2;
+// }
+
+
+// sum(1,2);
+// sum(2,4);
+// $result = sum2(3,6);
+// echo sum2(3,6);
+
+
+
+
+
 
 
 
