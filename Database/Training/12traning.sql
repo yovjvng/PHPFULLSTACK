@@ -1,4 +1,4 @@
--- 새로고침
+-- 새로고침 
 FLUSH PRIVILEGES;
 
 
@@ -12,42 +12,14 @@ FLUSH PRIVILEGES;
 
 
 
-SELECT AVG(salary)
-FROM salaries
-;
-
-
-
-INSERT INTO employees(
-	emp_no
-	,birth_date
-	,first_name
-	,last_name
-	,gender
-	,hire_date
-)
-VALUES (
-	 1
-	,DATE(19940517)
-	,"YuJeong"
-	,"Beak"
-	,"F"
-	,NOW()
-);
 
 SELECT *
 FROM employees
-WHERE emp_no = 500003;
-
-
-UPDATE employees
-SET frist_name = "길동", last_name = "홍"  
-WHERE emp_no = 1;
+WHERE emp_no = 500000;
 
 
 
-DELETE FROM employees 
-WHERE emp_no = 1;
+
 
 
 ROLLBACK;

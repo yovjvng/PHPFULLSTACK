@@ -33,24 +33,24 @@ my_db_conn( $obj_conn );
 
 
 // sql
-$sql =
+// $sql =
 
-" SELECT "
-." * "
-." FROM "
-." employees "
-."LIMIT :limit_start";
+// " SELECT "
+// ." * "
+// ." FROM "
+// ." employees "
+// ."LIMIT :limit_start";
 
-$arr_prepare = 
-    array(
-        ":limit_start" => 5
-    );
+// $arr_prepare = 
+//     array(
+//         ":limit_start" => 5
+//     );
 
-$stmt = $obj_conn->prepare( $sql );
-$stmt->execute( $arr_prepare );
-$result = $stmt->fetchALL();
+// $stmt = $obj_conn->prepare( $sql );
+// $stmt->execute( $arr_prepare );
+// $result = $stmt->fetchALL();
 
-var_dump( $result );
+// var_dump( $result );
 
 
 
