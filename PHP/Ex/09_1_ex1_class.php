@@ -39,8 +39,8 @@ $obj_Student = new Student;
 // $obj_Student->print_student("홍길동", 27);
 // class의 멤버 변수 사용 방법
 // echo $obj_Student->std_name;
-// $obj_Student->std_name = "갑돌이";
-// echo $obj_Student->std_name;
+$obj_Student->std_name = "갑돌이";
+echo $obj_Student->std_name;
 
 // 지시자가 private이기 때문에 접근 권한이 없다.
 // $obj_Student->$std_id = "갑돌이id";
