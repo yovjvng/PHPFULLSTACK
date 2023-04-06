@@ -67,7 +67,18 @@
 		}
 	}
 
-	if ($user_sum = $dealer_sum) 
+
+
+
+	// print_r ($user);
+	// print_r ($dealer);
+
+	echo "---게임 시작---\n";
+	echo "User 카드 : ".$user[0].$user[1]."\n";
+	echo "Dealer 카드 : ".$user[0]."\n";
+
+
+	if ($user_sum === $dealer_sum) 
 	{
 		echo "무승부";
 	}
@@ -80,9 +91,29 @@
 		echo "딜러승리";
 	}
 
-echo $user_sum
-;
-echo $dealer_sum;
+
+while(true) {
+	echo '시작';
+	print "\n";
+	fscanf(STDIN, "%d\n", $input);        
+	if($input === 0) {
+		break;
+	}
+	echo $input;
+	print "\n";
+}
+echo "끝!\n";
+
+
+
+
+
+
+
+
+// echo $user_sum
+// ;
+// echo $dealer_sum;
 
 
 	// $cards = array("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "Q", "J");

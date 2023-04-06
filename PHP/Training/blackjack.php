@@ -31,69 +31,141 @@
 // echo "끝!\n";
 
 
-// class Blackjack 
-// {
-// 	public $desk = array();
-// 	public $dealer = array();
-// 	public $user = array();
-// 	public $card = array("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "Q", "J");
-
-// 	public function start()
-// 	{
-// 		for ($i=0; $i <= 2; $i++) 
-// 		{ 
-// 			shuffle($this->desk);
-// 		}
-// 	}
-
-// 	public function game()
-// 	{
-// 		for ($i=1; $i <= ; $i++) 
-// 		{ 
-			
-// 		}
-// 	}
-
-// }
-//1. 게임 시작시 유저와 딜러는 카드를 2개 받는다.
-// 1-1. 이때 유저 또는 딜러의 카드 합이 21이면 결과 출력
-
 class BlackJack
 {
-	private $arr_num;
-	private $arr_shape;
-	private $arr_deck;
+	private $cards = array("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "Q", "J");
+	private $shapes = array("♠", "♣", "◆", "♥");
+	private $deck = array();
+	private $user = array();
+	private $dealer = array();
 
-	// construct
 	public function __construct()
 	{
-		$this->arr_num = array( "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
-		$this->arr_shape = array("♠", "♣", "◆", "♥");
-		$this->set_deck();
-	}
-
-	// set
-	private function set_deck()
-	{
-		// 카드 52장 덱에 셋팅
-		foreach( $this->arr_shape as $shape )
+		// $this->score();
+			foreach ($this->cards as $arr_card) 
 		{
-			foreach( $this->arr_num as $num )
+			foreach ($this->shapes as $arr_sha) 
 			{
-				$this->arr_deck[] = $num.$shape;
+				array_push($this->deck, "$arr_card$arr_sha");
 			}
 		}
-		// 덱 셔플
-		shuffle( $this->arr_deck );
+		$cnt = count($this->cards)*count($this->shapes) -1;
+		shuffle($this->deck);
+
+		for ($i = 0; $i < 2; $i++) 
+		{ 
+			$this->user[] = ($this->deck[$cnt]);
+			--$cnt;
+		}
+		for ($i = 0; $i < 2; $i++) 
+		{ 
+			$this->dealer[] = ($this->deck[$cnt]);
+			--$cnt;
+		}
 	}
-	// TODO : debug
+	public function score($param_score)
+	{
+		$sum = 0;
+		// $dealer_sum = 0;
+		foreach ($param_score as $val) 
+		{
+			if (strpos( $val , "A") !== false ) 
+			{
+				$sum += 1;
+			}
+			else if (strpos( $val , "J") !== false || strpos( $val , "Q") !== false || strpos( $val , "K") !== false)
+			{
+				$sum += 10;
+			}
+			else 
+			{
+				$sum += intval( substr($val, 0, 1));
+			}
+		}
+		// foreach ($dealer as $val) 
+		// {
+		// 	if (strpos( $val , "A") !== false ) 
+		// 	{
+		// 		$dealer_sum += 1;
+		// 	}
+		// 	else if (strpos( $val , "J") !== false || strpos( $val , "Q") !== false || strpos( $val , "K") !== false)
+		// 	{
+		// 		$dealer_sum += 10;
+		// 	}
+		// 	else 
+		// 	{
+		// 		$dealer_sum += intval( substr($val, 0, 1));
+		// 	}
+		// }
+		return($sum);
+		// return($dealer_sum);
+
+	}
+
 	public function debug()
 	{
-		var_dump( $this->arr_deck );
+		var_dump( $this->user );
+		var_dump( $this->dealer );
 	}
+
 }
-$obj_bj = new BlackJack();
-$obj_bj->debug();
+
+// $obj_bj->debug();
+// $obj_bj->score();
+
+while(true) {
+	echo '시작';
+	print "\n";
+	fscanf(STDIN, "%d\n", $input);        
+	if($input === 0) {
+		$obj_bj = new BlackJack();
+
+		echo "User 카드 : ".$this->user[0].$this->user[1]."\n";
+		echo "Dealer 카드 : ".$this->user[0]."\n";
+		break;
+	}
+	echo $input;
+	print "\n";
+}
+echo "끝!\n";
+
+
+// class BlackJack
+// {
+// 	private $arr_num;
+// 	private $arr_shape;
+// 	private $arr_deck;
+
+// 	// construct
+// 	public function __construct()
+// 	{
+// 		$this->arr_num = array( "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
+// 		$this->arr_shape = array("♠", "♣", "◆", "♥");
+// 		$this->set_deck();
+// 	}
+
+// 	// set
+// 	private function set_deck()
+// 	{
+// 		// 카드 52장 덱에 셋팅
+// 		foreach( $this->arr_shape as $shape )
+// 		{
+// 			foreach( $this->arr_num as $num )
+// 			{
+// 				$this->arr_deck[] = $num.$shape;
+// 			}
+// 		}
+// 		// 덱 셔플
+// 		shuffle( $this->arr_deck );
+// 	}
+// 	// TODO : debug
+// 	public function debug()
+// 	{
+// 		var_dump( $this->arr_deck );
+// 	}
+// }
+// $obj_bj = new BlackJack();
+// $obj_bj->debug();
 
 
 
