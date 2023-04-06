@@ -86,7 +86,7 @@ class BlackJack
 		// 덱 셔플
 		shuffle( $this->arr_deck );
 	}
-
+	// TODO : debug
 	public function debug()
 	{
 		var_dump( $this->arr_deck );
@@ -94,6 +94,8 @@ class BlackJack
 }
 $obj_bj = new BlackJack();
 $obj_bj->debug();
+
+
 
 
 
