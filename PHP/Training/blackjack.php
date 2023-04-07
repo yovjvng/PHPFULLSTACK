@@ -10,9 +10,11 @@
 // 4-1.카드 2~10는 그 숫자대로 점수
 // 4-2. K·Q·J은 10점
 // 4-3. A는 1점 또는 11점 둘 중의 하나로 계산
+
 //5. 카드의 합이 같으면 다음의 규칙에 따름
 // 5-1. 카드수가 적은 쪽이 승리
 // 5-2. 카드수가 같을경우 스페이드>크로버>다이아>하트 순
+
 //6. 유저가 카드를 받을 때 딜러는 아래의 규칙을 따른다.
 // 6-1. 딜러는 카드의 합이 17보다 낮을 경우 카드를 더 받음
 // 6-2. 17 이상일 경우는 받지 않는다.
@@ -36,8 +38,8 @@ class BlackJack
 	private $cards = array("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "Q", "J");
 	private $shapes = array("♠", "♣", "◆", "♥");
 	private $deck = array();
-	private $user = array();
-	private $dealer = array();
+	public $user = array();
+	public $dealer = array();
 
 	public function __construct()
 	{
@@ -62,18 +64,19 @@ class BlackJack
 			$this->dealer[] = ($this->deck[$cnt]);
 			--$cnt;
 		}
+		return($this->deck);
 	}
 	public function score($param_score)
 	{
 		$sum = 0;
-		// $dealer_sum = 0;
 		foreach ($param_score as $val) 
 		{
 			if (strpos( $val , "A") !== false ) 
 			{
 				$sum += 1;
 			}
-			else if (strpos( $val , "J") !== false || strpos( $val , "Q") !== false || strpos( $val , "K") !== false)
+			else if (strpos( $val , "J") !== false || strpos( $val , "Q") !== false || strpos( $val , "K") !== false
+			|| strpos( $val , "10") !== false)
 			{
 				$sum += 10;
 			}
@@ -82,50 +85,121 @@ class BlackJack
 				$sum += intval( substr($val, 0, 1));
 			}
 		}
-		// foreach ($dealer as $val) 
-		// {
-		// 	if (strpos( $val , "A") !== false ) 
-		// 	{
-		// 		$dealer_sum += 1;
-		// 	}
-		// 	else if (strpos( $val , "J") !== false || strpos( $val , "Q") !== false || strpos( $val , "K") !== false)
-		// 	{
-		// 		$dealer_sum += 10;
-		// 	}
-		// 	else 
-		// 	{
-		// 		$dealer_sum += intval( substr($val, 0, 1));
-		// 	}
-		// }
-		return($sum);
-		// return($dealer_sum);
-
+		return $sum;
 	}
-
-	public function debug()
+	public function get_user()
 	{
-		var_dump( $this->user );
-		var_dump( $this->dealer );
+		return $this->user;
 	}
+	public function get_dealer()
+	{
+		return $this->dealer;
+	}
+	public function get_card() 
+	{
+		array_push($this->user, array_shift($this->deck));
+		if ($this->score($this->user) > 21) {
+			return false; // 21보다 크면 패배
+		}
+		else 
+		{
+			return true; // 아니면 true
+		}
+	}
+	// 6-1. 딜러는 카드의 합이 17보다 낮을 경우 카드를 더 받음
+	// 6-2. 17 이상일 경우는 받지 않는다.
+	public function get_card_dealer() 
+	{
+		while ($this->score($this->dealer) < 17) 
+		{
+			array_push($this->dealer, array_shift($this->deck));
+			if ($this->score($this->dealer) > 21) {
+				return false;
+			}
+			else 
+			{
+				return true;
+			}
+			break;
+		}
+	}
+	public function get_compare()
+	{
+		$this->get_card_dealer();
+	}
+	
+
+	public function game_result()
+	{
+			if ($user === $dealer) 
+		{
+			echo "무승부";
+		}
+		else if ($user > $dealer)
+		{
+			echo "유저승리";
+		}
+		else if ($user < $dealer)
+		{
+			echo "딜러승리";
+		}
+	}
+
+
+
+	// public function debug()
+	// {
+	// 	var_dump( $this->user );
+	// 	var_dump( $this->dealer );
+	// }
 
 }
+
 
 // $obj_bj->debug();
 // $obj_bj->score();
 
-while(true) {
-	echo '시작';
-	print "\n";
-	fscanf(STDIN, "%d\n", $input);        
-	if($input === 0) {
-		$obj_bj = new BlackJack();
+$input = null;
+while( !($input === 0 ) ){
+	$obj_bj = new BlackJack();
+	echo "----게임시작----\n";
+	echo "User 카드 : ".implode(" , ",$obj_bj->get_user())."\n";
+	echo "User 점수 : ".$obj_bj->score($obj_bj->user)."\n";
+	echo "Dealer 카드 : ".implode(" , ",$obj_bj->get_dealer())."\n";
+	echo "User 점수 : ".$obj_bj->score($obj_bj->dealer)."\n";
 
-		echo "User 카드 : ".$this->user[0].$this->user[1]."\n";
-		echo "Dealer 카드 : ".$this->user[0]."\n";
-		break;
+	print "\n";
+	while( true )
+	{
+		fscanf(STDIN, "%d\n", $input);  
+		if($input === 1) {
+			if (!$obj_bj->get_card()) 
+			{
+				echo "User 카드 : ".implode(" , ",$obj_bj->get_user())."\n";
+				echo "User 점수 : ".$obj_bj->score($obj_bj->user)."\n";
+				break;
+			}
+			echo "User 카드 : ".implode(" , ",$obj_bj->get_user())."\n";
+			echo "User 점수 : ".$obj_bj->score($obj_bj->user)."\n";
+			// break;
+		}
+		else if($input === 2) {
+			if (!$obj_bj->get_compare()) 
+			{
+				echo "User 카드 : ".implode(" , ",$obj_bj->get_user())."\n";
+				echo "Dealer 카드 : ".implode(" , ",$obj_bj->get_dealer())."\n";
+				break;
+			}
+			echo "User 카드 : ".implode(" , ",$obj_bj->get_user())."\n";
+			echo "Dealer 카드 : ".implode(" , ",$obj_bj->get_dealer())."\n";
+		}
+		else if($input === 0) {
+			break;
+		}
 	}
 	echo $input;
 	print "\n";
+	echo $obj_bj->game_result()."\n";
 }
 echo "끝!\n";
 

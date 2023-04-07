@@ -24,13 +24,15 @@
 	$dealer = array();
 	for ($i = 0; $i < 2; $i++) 
 	{ 
-		$user[] = ($deck[$cnt]);
-		--$cnt;
+		// $user[] = ($deck[$cnt]);
+		// --$cnt;
+		array_push($user, array_shift($deck));
 	}
 	for ($i = 0; $i < 2; $i++) 
 	{ 
-		$dealer[] = ($deck[$cnt]);
-		--$cnt;
+		// $dealer[] = ($deck[$cnt]);
+		// --$cnt;
+		array_push($dealer, array_shift($deck));
 	}
 	// var_dump($user);
 
@@ -42,7 +44,8 @@
 		{
 			$user_sum += 1;
 		}
-		else if (strpos( $val , "J") !== false || strpos( $val , "Q") !== false || strpos( $val , "K") !== false)
+		else if (strpos( $val , "J") !== false || strpos( $val , "Q") !== false || strpos( $val , "K") !== false
+		|| strpos( $val , "10") !== false)
 		{
 			$user_sum += 10;
 		}
@@ -57,7 +60,8 @@
 		{
 			$dealer_sum += 1;
 		}
-		else if (strpos( $val , "J") !== false || strpos( $val , "Q") !== false || strpos( $val , "K") !== false)
+		else if (strpos( $val , "J") !== false || strpos( $val , "Q") !== false 
+		|| strpos( $val , "10") !== false)
 		{
 			$dealer_sum += 10;
 		}
@@ -68,15 +72,17 @@
 	}
 
 
+// if ($user_sum > 21)
+// {
+// 	// array_push($user, array_shift($deck));
+// }
 
-
-	// print_r ($user);
-	// print_r ($dealer);
-
+$input = null;
+while( !($input === 1) ) {
 	echo "---게임 시작---\n";
 	echo "User 카드 : ".$user[0].$user[1]."\n";
-	echo "Dealer 카드 : ".$user[0]."\n";
-
+	echo "User 점수 : ".$user_sum."\n";
+	echo "Dealer 카드 : ".$dealer[0]."\n";
 
 	if ($user_sum === $dealer_sum) 
 	{
@@ -90,14 +96,19 @@
 	{
 		echo "딜러승리";
 	}
-
-
-while(true) {
-	echo '시작';
 	print "\n";
-	fscanf(STDIN, "%d\n", $input);        
-	if($input === 0) {
-		break;
+	while( true )
+	{
+		fscanf(STDIN, "%d\n", $input);        
+		if($input === 1) {
+			echo "User 카드 : ".$user[0]."\n";
+			// echo "User 점수 : ".$user_sum."\n";
+			break;
+		}
+		     
+		if($input === 0) {
+			break;
+		}
 	}
 	echo $input;
 	print "\n";
