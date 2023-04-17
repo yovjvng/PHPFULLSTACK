@@ -42,7 +42,8 @@
 		{
 			$user_sum += 1;
 		}
-		else if (strpos( $val , "J") !== false || strpos( $val , "Q") !== false || strpos( $val , "K") !== false)
+		else if (strpos( $val , "J") !== false || strpos( $val , "Q") !== false || strpos( $val , "K") !== false
+		|| strpos( $val , "10") !== false)
 		{
 			$user_sum += 10;
 		}
@@ -66,18 +67,28 @@
 			$dealer_sum += intval( substr($val, 0, 1));
 		}
 	}
+	// if()
+	// {
+	// 	if($user_sum > 21)
+	// 	{
+	// 		$result = false;
+	// 	}
+	// 	else
+	// 	{
+	// 		$result = true;
+	// 	}
+	// }
 
 
 
 
-	// print_r ($user);
-	// print_r ($dealer);
-
+$input = null;
+while( !($input === 0) ) {
+	sleep( 3 );
 	echo "---게임 시작---\n";
 	echo "User 카드 : ".$user[0].$user[1]."\n";
-	echo "Dealer 카드 : ".$user[0]."\n";
-
-
+	echo "User 점수 : ".$user_sum."\n";
+	echo "Dealer 카드 : ".$dealer[0]."\n";
 	if ($user_sum === $dealer_sum) 
 	{
 		echo "무승부";
@@ -90,19 +101,32 @@
 	{
 		echo "딜러승리";
 	}
-
-
-while(true) {
-	echo '시작';
-	print "\n";
-	fscanf(STDIN, "%d\n", $input);        
-	if($input === 0) {
-		break;
+	while(true) 
+	{
+		fscanf(STDIN, "%d\n", $input); 
+		if($input === 1) 
+		{
+			array_push( $user, array_shift( $deck ) );
+			echo "\nUser 카드 : ".$user[1]."\n";
+			echo "User 점수 : ".$user_sum."\n";
+			// if($user_sum > 21)
+			// {
+			// 	echo "\nUser 카드 : ".$user[0].$user[1]."\n";
+			// 	echo "User 점수 : ".$user_sum."\n";
+			// 	echo "\nDealer 카드 : ".$dealer[0]."\n";
+			// 	break;
+			// }
+		}
 	}
-	echo $input;
-	print "\n";
-}
+		if($input === 0) {
+			break;
+		}
+		echo $input;
+		print "\n";
+	}
 echo "끝!\n";
+
+
 
 
 

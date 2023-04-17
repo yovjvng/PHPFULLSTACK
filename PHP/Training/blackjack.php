@@ -62,6 +62,7 @@ class BlackJack
 			$this->dealer[] = ($this->deck[$cnt]);
 			--$cnt;
 		}
+		return $this->deck;
 	}
 	public function score($param_score)
 	{
@@ -81,6 +82,7 @@ class BlackJack
 			{
 				$sum += intval( substr($val, 0, 1));
 			}
+			return $sum;
 		}
 		// foreach ($dealer as $val) 
 		// {
@@ -102,6 +104,14 @@ class BlackJack
 
 	}
 
+	// public function set_fnc_game()
+	// {
+	// 	if($sum > 21)
+	// 	{
+
+	// 	}
+	// }
+
 	public function debug()
 	{
 		var_dump( $this->user );
@@ -121,7 +131,7 @@ while(true) {
 		$obj_bj = new BlackJack();
 
 		echo "User 카드 : ".$this->user[0].$this->user[1]."\n";
-		echo "Dealer 카드 : ".$this->user[0]."\n";
+		echo "Dealer 카드 : ".$this->dealer[0]."\n";
 		break;
 	}
 	echo $input;
