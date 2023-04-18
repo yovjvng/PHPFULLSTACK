@@ -64,7 +64,11 @@ class BlackJack
 			$this->dealer[] = ($this->deck[$cnt]);
 			--$cnt;
 		}
+<<<<<<< HEAD
+		return $this->deck;
+=======
 		return($this->deck);
+>>>>>>> 9d5aa03138933b93eb27bf14f974700a1e546706
 	}
 	public function score($param_score)
 	{
@@ -84,10 +88,24 @@ class BlackJack
 			{
 				$sum += intval( substr($val, 0, 1));
 			}
+			return $sum;
 		}
 		return $sum;
 	}
+<<<<<<< HEAD
+
+	// public function set_fnc_game()
+	// {
+	// 	if($sum > 21)
+	// 	{
+
+	// 	}
+	// }
+
+	public function debug()
+=======
 	public function get_user()
+>>>>>>> 9d5aa03138933b93eb27bf14f974700a1e546706
 	{
 		return $this->user;
 	}
@@ -168,6 +186,11 @@ while( !($input === 0 ) ){
 	echo "Dealer 카드 : ".implode(" , ",$obj_bj->get_dealer())."\n";
 	echo "User 점수 : ".$obj_bj->score($obj_bj->dealer)."\n";
 
+<<<<<<< HEAD
+		echo "User 카드 : ".$this->user[0].$this->user[1]."\n";
+		echo "Dealer 카드 : ".$this->dealer[0]."\n";
+		break;
+=======
 	print "\n";
 	while( true )
 	{
@@ -196,6 +219,7 @@ while( !($input === 0 ) ){
 		else if($input === 0) {
 			break;
 		}
+>>>>>>> 9d5aa03138933b93eb27bf14f974700a1e546706
 	}
 	echo $input;
 	print "\n";
