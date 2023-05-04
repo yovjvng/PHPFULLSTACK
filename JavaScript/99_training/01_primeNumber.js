@@ -47,6 +47,23 @@ let arr_dec = arr_num.filter(
 )
 alert(arr_dec);
 
+// 두번째 방법
+// for( let i = 1; i <= num; i++ ){
+//     arr_num.push( i );
+// }
+
+// function PrimeNum( val ){
+//     for( let i = 2; i < val; i++ ){
+//         if( val % 1 === 0){
+//             return false;
+//         }
+//     }
+//     return val !== 1;
+// }
+
+// let arr2 = arr_num.filter( val => PrimeNum( val ) );
+// alert( arr2 );
+
 
 // 짝수만 출력
 
@@ -63,6 +80,7 @@ alert(arr_dec);
 // )
 // console.log(arr_Even);
 
+// 홀수만 출력
 // let arr_odd = arr_num.filter(
 //     function ( a ) {
 //         return a % 2 === 1;
