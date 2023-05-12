@@ -1,6 +1,9 @@
 @charset "ucf-8";
 
 /* reset */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Roboto:wght@300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -17,11 +20,12 @@ li {
   list-style: none;
 }
 
-/* html,
+html,
 body {
-  font-size: 16px;
-  font-family: 'S-CoreDream-4Regular';
-} */
+  /* font-size: 16px; */
+  font-family: 'Lora', serif;
+  font-weight: 300;
+}
 
 input {
   outline: 0;
