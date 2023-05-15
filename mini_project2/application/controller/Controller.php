@@ -5,7 +5,7 @@ namespace application\controller;
 use application\util\UrlUtil;
 use \AllowDynamicProperties;
 
-#[AllowDynamicProperties]
+#[AllowDynamicProperties] // 동적 속성 세팅 _ 8버전 이후부터는 작성하지 않으면 경고알림이 뜸
 class Controller {
     protected $model;
     private static $modelList = [];
@@ -56,7 +56,7 @@ class Controller {
             exit();
         }
 
-        return _PATH_VIEW.$view;
+        return _PATH_VIEW.$view; // application/view/login.php로 리턴
     }
 
     // 동적 속성(DynamicProperty)를 셋팅하는 메소드

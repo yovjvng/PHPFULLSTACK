@@ -1,0 +1,16 @@
+@charset "ucf-8";
+
+
+.loginwrap {
+    display: flex;
+    height: 550px;
+}
+h1 {
+    align-items: center;
+    text-align: center;
+}
+#login_form {
+    align-items: center;
+    text-align: center;
+    margin: 50px auto;
+}

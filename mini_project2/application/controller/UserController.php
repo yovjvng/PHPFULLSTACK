@@ -10,7 +10,7 @@ class UserController extends Controller {
             $result = $this->model->getUser($_POST);
             // 유저 유무 체크
             if(count($result) === 0) {
-                $errMsg = "입력하신 회원 정보가 없습니다.";
+                $errMsg = "* 입력하신 회원 정보가 없습니다.";
                 $this->addDynamicProperty("errMsg", $errMsg);
                 // 로그인 페이지 리턴
                 return "login"._EXTENSION_PHP;
@@ -19,7 +19,7 @@ class UserController extends Controller {
             $_SESSION["u_id"] = $_POST["id"];
 
             // 리스트 페이지 리턴
-            return _BASE_REDIRECT."/product/list";
+            return _BASE_REDIRECT."/shop/main";
         }
 
         // 로그아웃 메소드
@@ -28,6 +28,20 @@ class UserController extends Controller {
             session_destroy();
             // 로그인 페이지 리턴
             return "login"._EXTENSION_PHP;
+        }
+
+        // 회원가입
+        public function registerGet() {
+            return "register"._EXTENSION_PHP;
+        }
+        public function registerPost() {
+            $result = $this->model->PostUser($_POST);
+
+            $_SESSION["u_id"] = $_POST["id"];
+            $_SESSION["u_pw"] = $_POST["pw"];
+
+            // 리스트 페이지 리턴
+            return _BASE_REDIRECT."/shop/main";
         }
 }
 

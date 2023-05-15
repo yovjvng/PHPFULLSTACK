@@ -1,0 +1,192 @@
+@charset "ucf-8";
+
+/* reset */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Roboto:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+
+li {
+  list-style: none;
+}
+
+html,
+body {
+  /* font-size: 16px; */
+  font-family: 'Lora', serif;
+  font-weight: 300;
+}
+
+input {
+  outline: 0;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+a {
+  cursor: pointer;
+}
+/* header */
+
+.hiuser {
+  width: 100px;
+  font-size: 13px;
+}
+
+
+/* main */
+/* h3 {
+  text-align: center;
+  margin: 20px 0;
+} */
+.wrap {
+  background-color: #c1ccd2;
+  height: 100%;
+}
+.container {
+  margin-top: 50px;
+}
+
+.card-body{
+  background-color: transparent;
+  border-bottom: 1px solid #333;
+  border-top: 1px solid #333;
+}
+
+/* 그리드 */
+
+.wrapper{
+  margin: 5em auto 0 auto;
+  max-width: 800px;
+}
+.post-image img {
+  max-width: 100%;
+  display: block;
+}
+figure {
+  margin-bottom: 1.8em;
+  display: flex;
+  justify-content: space-between;
+}
+.post-image:nth-last-child(n+2):nth-last-child(-n+2):first-child
+.post-image:nth-last-child(n+2):nth-last-child(-n+2):first-child ~ .post-image{
+
+  flex: 0 1 18%;
+}
+.post-image:nth-last-child(n+3):nth-last-child(-n+3):first-child
+.post-image:nth-last-child(n+3):nth-last-child(-n+3):first-child ~ .post-image{
+  flex: 0 1 31%;
+}
+
+/* footer */
+footer {
+  background-color:#93a4ae;
+  color: #fff;
+  font-size: 0;
+  margin: 100px 0 0;
+  border-top: 1px solid #444;
+}
+
+
+footer .footer-top ul li {
+  display: inline-block;
+  font-size: 14px;
+}
+
+footer .footer-top ul li::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 11px;
+  background-color: #fff;
+  margin: 0 10px;
+}
+
+footer .footer-top ul {
+  padding: 10px;
+}
+
+.footer-top {
+  width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+footer .footer-bottom {
+  width: 1100px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+.footer-bottom > div {
+  display: inline-block;
+}
+
+.bottom-left h4 {
+  font-size: 25px;
+  text-align: center;
+}
+.bottom-left .footer-logo {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+
+}
+
+.footer-bottom .bottom-left {
+  border-right: 1px dashed #fff;
+  padding: 0 100px;
+}
+
+.footer-bottom .bottom-right {
+  padding: 0 100px;
+}
+.copyright{
+  font-size: 22px;
+  text-align: center;
+}
+
+
+/*  */
+
+.section4{
+  height: 537px;
+}
+.section4 .section4-content{
+  border-bottom: 2px solid #444;
+  height: 90%;
+  position: relative;
+}
+
+.section4 .section4-content h2{
+  font-size: 50px;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
+  position: absolute;
+  left: -3%;
+  top: 40%; 
+}
+.section4 .footer .copyright{
+  background-color:#93a4ae;
+  width: 100%;
+  font-size: 22px;
+  text-align: center;
+  line-height: 50px;
+}

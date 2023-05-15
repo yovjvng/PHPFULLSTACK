@@ -22,6 +22,29 @@ class UserModel extends Model{
         return $result;
     }
 
+    public function PostUser($arrUserInsert) {
+        $sql = " INSERT INTO user_info ( u_id, u_pw ) VALUES ( :id, :pw ) ";
+        $prepare = [
+            ":id" => $arrUserInsert["id"]
+            ,":pw" => $arrUserInsert["pw"]
+        ];
+        try {
+            $conn->beginTransaction();
+            $stmt = $conn->prepare( $sql );
+            $stmt->execute( $arr_prepare );
+            $result = $stmt->rowCount();
+            $conn->commit();
+        } 
+        catch ( Exception $e ) {
+            echo "UserModel->getUser Error : ".$e->getmessage();
+            exit();
+        } 
+        finally {
+            $this->closeConn();
+        }
+        return $result;
+    }
+
 }
 
 ?>
