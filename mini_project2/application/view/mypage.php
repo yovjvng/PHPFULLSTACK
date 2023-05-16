@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet"  type="text/css" href="/application/view/css/main.css">
     <link rel="stylesheet"  type="text/css" href="/application/view/css/login.css">
-    <title>Login</title>
+    <title>Join</title>
 </head>
 <body>
     <div class="wrap">
@@ -61,29 +61,14 @@
         </nav>
 
 
-        <!-- 로그인 폼 -->
-    <div class="login_wrap">
-        <h1>Login</h1>
-        <h3 style="color: red; font-size: 16px;" ><?php echo isset($this->errMsg) ? $this->errMsg : ""; ?></h3>
+        <!-- 마이페이지 폼 -->
+    <h1>MY PAGE</h1>
 
-        <div class="login_con">
-            <form id="login_form" action="/user/login" method="post">
-                <label for="id">ID</label>
-                <input type="text" name="id" id="id">
-                <br>
-                <br>
-                <label for="pw">PW</label>
-                <input type="password" name="pw" id="pw">
-                <br>
-                <br>
-                <button type="submit">Login</button>
-            </form>
-            <div class="findMenu">
-                <a onclick="location.href='findId.php'">아이디 찾기</a>&nbsp;&nbsp;&nbsp;
-                <a onclick="location.href='findPw.php'">비밀번호 찾기</a>
-            </div>
-        </div>
+    <div class="maypagewrap">
+        <div> 이름 :  <?php echo $_SESSION["u_name"]  ?></div> <br>
+        <div> 아이디 : <?php echo $_SESSION["u_id"] ?></div> <br>
     </div>
+
 
     <!-- footer -->
     
@@ -115,7 +100,25 @@
         
     </div>
 
-    
+    <script type="text/javascript">
+    function test() {
+      var p1 = document.getElementById('password1').value;
+      var p2 = document.getElementById('password2').value;
+      
+      if(p1.length < 2) {
+              alert('입력한 글자가 2글자 이상이어야 합니다.');
+              return false;
+          }
+          
+          if( p1 != p2 ) {
+            alert("비밀번호불일치");
+            return false;
+          } else{
+            alert("비밀번호가 일치합니다");
+            return true;
+          }
+    }
+  </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

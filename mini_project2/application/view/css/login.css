@@ -1,16 +1,16 @@
 @charset "ucf-8";
 
 
-.loginwrap {
-    display: flex;
-    height: 550px;
+.login_wrap{
+    margin: 150px 0 350px;
 }
 h1 {
-    align-items: center;
     text-align: center;
 }
 #login_form {
-    align-items: center;
     text-align: center;
     margin: 50px auto;
+}
+.login_con {
+    text-align: center;
 }

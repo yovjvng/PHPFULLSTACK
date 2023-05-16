@@ -60,7 +60,7 @@
                         if( isset( $_SESSION["u_id"]) ) {
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">MYPAGE</a>
+                            <a class="nav-link" href="/user/mypage">MYPAGE</a>
                         </li>
                         <?php
                         } else {

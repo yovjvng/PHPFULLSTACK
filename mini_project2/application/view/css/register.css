@@ -1,0 +1,27 @@
+@charset "ucf-8";
+
+h1 {
+    text-align: center;
+}
+input, button {
+    font-family: inherit; font-size: inherit; 
+}
+.join_wrap {
+    text-align: center;
+    margin: 150px 0 250px;
+}
+#join_form {
+    text-align: center;
+    margin: 20px auto;
+}
+#join_form .con {
+    float: left;
+}
+.arr {
+    font-size: 13px;
+    color: red;
+}
+.join_con {
+    margin: 0 auto;
+    width: 300px;
+}

@@ -3,12 +3,22 @@
 namespace application\model;
 
 class UserModel extends Model{
-    public function getUser($arrUserInfo) {
-        $sql = " select * FROM user_info WHERE u_id = :id and u_pw = :pw ";
+    public function getUser($arrUserInfo, $pwFlg = true) {
+        $sql = " select * FROM user_info WHERE u_id = :id ";
+
+        // PW 추가할 경우 _동적쿼리
+        if($pwFlg) {
+            $sql .= " and u_pw = :pw ";
+        }
         $prepare = [
             ":id" => $arrUserInfo["id"]
-            ,":pw" => $arrUserInfo["pw"]
         ];
+
+        // PW 추가할 경우 _동적쿼리
+        if($pwFlg) {
+            $prepare[":pw"] = $arrUserInfo["pw"];
+        }
+
         try {
             $stmt = $this->conn->prepare($sql);
             $stmt->execute($prepare);
@@ -16,35 +26,39 @@ class UserModel extends Model{
         } catch (Exception $e) {
             echo "UserModel->getUser Error : ".$e->getmessage();
             exit();
-        } finally {
-            $this->closeConn();
         }
         return $result;
     }
 
-    public function PostUser($arrUserInsert) {
-        $sql = " INSERT INTO user_info ( u_id, u_pw ) VALUES ( :id, :pw ) ";
+
+    // Insert User
+    public function insertUser($arrUserInfo) {
+        $sql = " INSERT INTO user_info( u_id, u_pw, u_name ) VALUES( :u_id, :u_pw, :u_name ) ";
+
         $prepare = [
-            ":id" => $arrUserInsert["id"]
-            ,":pw" => $arrUserInsert["pw"]
+            ":u_id" => $arrUserInfo["id"]
+            ,":u_pw" => $arrUserInfo["pw"]
+            ,":u_name" => $arrUserInfo["name"]
         ];
         try {
-            $conn->beginTransaction();
-            $stmt = $conn->prepare( $sql );
-            $stmt->execute( $arr_prepare );
-            $result = $stmt->rowCount();
-            $conn->commit();
+            $stmt = $this->conn->prepare( $sql );
+            $result = $stmt->execute( $prepare ); // execute의 리턴값은 boolean형
+            return $result;
         } 
         catch ( Exception $e ) {
-            echo "UserModel->getUser Error : ".$e->getmessage();
-            exit();
+            return false;
         } 
-        finally {
-            $this->closeConn();
-        }
-        return $result;
     }
 
+    // // Detail User
+    // public function detailUser($arrUserInfo) {
+    //     $sql =  " SELECT "
+    //     ." * "
+    //     ." FROM " 
+    //     ." user_info "
+    //     ." WHERE "
+    //     ." u_id = :u_id " ;
+    // }
 }
 
 ?>
