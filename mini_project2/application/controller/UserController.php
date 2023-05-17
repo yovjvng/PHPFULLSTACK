@@ -10,6 +10,7 @@ class UserController extends Controller {
             $result = $this->model->getUser($_POST);
             $this->model->close(); // DB 파기
 
+            $result[0]["u_pw"] === $_POST["u_pw"];
             // 유저 유무 체크
             if(count($result) === 0) {
                 $errMsg = "* 입력하신 회원 정보가 없습니다.";
@@ -19,6 +20,8 @@ class UserController extends Controller {
             }
             // session에 User ID 저장
             $_SESSION["u_id"] = $_POST["id"];
+            
+            // $_SESSION["u_name"] = $result[0]["name"];
 
             // 리스트 페이지 리턴
             return _BASE_REDIRECT."/shop/main";
@@ -45,16 +48,27 @@ class UserController extends Controller {
             // mb_strlen 제한 --> 데이터베이스에서 설정했던 숫자와 똑같이 설정
             if(mb_strlen($arrPost["id"]) === 0 || mb_strlen($arrPost["id"]) > 12 ) {
                 $arrChkErr["id"] = "ID는 12글자 이하로 입력해 주세요.";
-            }
-            // ID 영문숫자 체크 해보기
+            } // ID 영문숫자 체크 해보기
+            // else if(!preg_match("/^[a-zA-Z0-9_]+$/", $arrPost["id"])) {
+            //     $arrChkErr["id"] = "아이디는 영문, 숫자, -, _ 만 사용할 수 있습니다.";
+            // }
 
+            // ID 영문숫자 체크
+            $patten = "/[^a-zA-Z0-9]/";
+            if(preg_match($patten, $arrPost["id"]) !== 0) {
+                $arrChkErr["id"] = "ID는 영어 대문자, 영어 소문자, 숫자로만 입력해 주세요.";
+                $arrPost["id"] = "";
+            }
 
             // PW 글자수 체크
             if(mb_strlen($arrPost["pw"]) < 8 || mb_strlen($arrPost["pw"]) > 20 ) {
                 $arrChkErr["pw"] = "PW는 8~20글자로 입력해 주세요.";
             }
-            // PW 영문숫자 특수문자 체크 해보기
-
+            // todo PW 영문숫자 특수문자, 공백 체크 해보기
+            // if(!preg_match("/\s/u", $arrPost["id"]))
+            // {
+            //     $arrChkErr["pw"] = "비밀번호는 공백없이 입력해주세요.";
+            // }
 
             // 비밀번호 체크 확인
             if($arrPost["pw"] !== $arrPost["pwChk"]) {
@@ -101,15 +115,51 @@ class UserController extends Controller {
             // 로그인페이지로 이동
             return _BASE_REDIRECT."/user/login";
 
-
-
-            
-            // $_SESSION["u_id"] = $_POST["id"];
-            // $_SESSION["u_pw"] = $_POST["pw"];
         }
         // mypage
         public function mypageGet() {
+            $arr = ["id" => $_SESSION["u_id"]];
+            $result = $this->model->getUser($arr, false);
+            $this->model->close(); // DB 파기
+            // 동적 속성(DynamicProperty)를 셋팅하는 메소드 호출
+            $this->addDynamicProperty("userinfo", $result[0]);
+
             return "mypage"._EXTENSION_PHP;
+        }
+
+        // mypageup get
+        public function mypageupGet() {
+            $arr = ["id" => $_SESSION["u_id"]];
+            $result = $this->model->getUser($arr, false);
+            $this->model->close(); // DB 파기
+            $this->addDynamicProperty("userinfo", $result[0]);
+            return "mypageup"._EXTENSION_PHP;
+        }
+
+        // mypageup
+        public function mypageupPost() {
+            $arrPost = $_POST;
+            $arrChkErr = [];
+            // $this->model->close(); // DB 파기
+           $arrPost["id"] = $_SESSION["u_id"];
+
+            // if($arrPost["pw"] !== $arrPost["pwChk"]) {
+            //     $arrChkErr["pwChk"] = "비밀번호가 일치하지 않습니다.";
+            // }
+            
+            
+            $this->model->beginTransaction();
+            if(!$this->model->detailUser($arrPost)) {
+                // 예외처리 롤백
+                $this->model->rollback();
+                echo "User Register ERROR";
+                exit();
+            }
+            $this->model->commit(); // 정상처리 커밋
+
+
+            return _BASE_REDIRECT."/user/mypage";
+
         }
 
 }

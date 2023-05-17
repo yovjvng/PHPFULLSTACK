@@ -12,7 +12,7 @@ function chkDuplicationId() {
         if(apiData["flg"] === "1") {
             idspan.innerHTML = apiData["msg"];
         } else {
-            idspan.innerHTML = "";
+            idspan.innerHTML = apiData["msg"];
         }
     });
 }

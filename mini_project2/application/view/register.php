@@ -76,12 +76,12 @@
             <form action="/user/register" method="POST" id="join_form">
                 <div class="con">
                     <label for="name">이름</label>
-                    <input type="text" id="name" name="name" placeholder="이름" required>
+                    <input type="text" id="name" name="name" placeholder="이름" required value="<?php echo isset($_POST["name"]) ? $_POST["name"] : ""; ?>">
                     <br>
                     <span class="arr">
                     <?php if(isset($this->arrError["name"])) {
-                             echo $this->arrError["name"];
-                     } ?>
+                            echo $this->arrError["name"];
+                    } ?>
                     </span>
                 </div>
                 <br>
@@ -92,11 +92,11 @@
                     <button type="button" onclick="chkDuplicationId();">중복확인</button>
                     <br>
                     <span id="errMsgId" class="arr">
-                </div>
-                    <?php if(isset($this->arrError["id"])) {
-                             echo $this->arrError["id"];
-                     } ?>
+                        <?php if(isset($this->arrError["id"])) {
+                            echo $this->arrError["id"];
+                        } ?>
                     </span>
+                </div>
                 <br>
                 <br>
                 <div class="con">
@@ -105,8 +105,8 @@
                     <br>
                     <span class="arr">
                     <?php if(isset($this->arrError["pw"])) {
-                             echo $this->arrError["pw"];
-                     } ?>
+                            echo $this->arrError["pw"];
+                    } ?>
                     </span>
                 </div>
                 <br>
@@ -117,13 +117,13 @@
                     <br>
                     <span class="arr">
                     <?php if(isset($this->arrError["pwChk"])) {
-                             echo $this->arrError["pwChk"];
-                     } ?>
+                            echo $this->arrError["pwChk"];
+                    } ?>
                     </span>
                 </div>
                 <br>
                 <br>
-                <input type="submit" value="회원 가입"></p>
+                <button type="submit" value="회원 가입">회원가입</button>
             </form>
         </div>
     </div>

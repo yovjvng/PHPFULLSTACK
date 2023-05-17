@@ -50,15 +50,49 @@ class UserModel extends Model{
         } 
     }
 
-    // // Detail User
+    // Detail User
     // public function detailUser($arrUserInfo) {
-    //     $sql =  " SELECT "
-    //     ." * "
-    //     ." FROM " 
-    //     ." user_info "
-    //     ." WHERE "
-    //     ." u_id = :u_id " ;
+    //     $sql = " select * FROM user_info WHERE u_id = :id ";
+
+    //     $prepare = [
+    //         ":id" => $arrUserInfo["id"]
+    //     ];
+
+    //     try {
+    //         $stmt = $this->conn->prepare($sql);
+    //         $stmt->execute($prepare);
+    //         $result = $stmt->fetchAll();
+    //     } catch (Exception $e) {
+    //         echo "UserModel->getUser Error : ".$e->getmessage();
+    //         exit();
+    //     }
+    //     return $result;
     // }
+
+
+    // Update User
+    public function detailUser($arrUserInfo) {
+        $sql = " UPDATE "
+        ." user_info "
+        ." SET "
+        ." u_pw = :u_pw "
+        ." WHERE "
+        ." u_id = :u_id "
+        ;
+
+        $prepare = [
+            ":u_id" => $arrUserInfo["id"]
+            , ":u_pw" => $arrUserInfo["pw"]
+        ];
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $result = $stmt->execute($prepare);
+            return $result;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }
 
 ?>

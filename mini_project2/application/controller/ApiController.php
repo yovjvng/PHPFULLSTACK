@@ -17,6 +17,9 @@ class ApiController extends Controller {
             if(count($result) !== 0) {
                 $arrData["flg"] = "1";
                 $arrData["msg"] = "입력하신 ID가 사용중입니다.";
+            }else {
+                $arrData["flg"] = "0";
+                $arrData["msg"] = "사용가능한 ID입니다.";
             }
 
             // 배열을 JSON으로 변경

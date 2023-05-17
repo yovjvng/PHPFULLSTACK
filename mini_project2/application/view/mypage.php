@@ -8,6 +8,13 @@
     <link rel="stylesheet"  type="text/css" href="/application/view/css/main.css">
     <link rel="stylesheet"  type="text/css" href="/application/view/css/login.css">
     <title>Join</title>
+    <style>
+        .maypagewrap{
+            text-align: center;
+            margin: 50px auto;
+        }
+    </style>
+
 </head>
 <body>
     <div class="wrap">
@@ -43,12 +50,35 @@
                 </ul>
                 <form class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <?php
+                        if( isset( $_SESSION["u_id"]) ) {
+                        ?>
+                        <p class="hiuser">안녕하세요!<br> "<?php echo $_SESSION["u_id"] ?>" 님</p>
+                        <a class="nav-link" class="nav-link" id="logout" onclick="redirectLogout()">LOGOUT</a>
+                        <?php
+                        } else {
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link" href="/user/login">LOGIN</a>
                         </li>
+                        <?php
+                        }
+                        ?>
+                        <?php
+                        if( isset( $_SESSION["u_id"]) ) {
+                        ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/mypage">MYPAGE</a>
+                        </li>
+                        <?php
+                        } else {
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link" href="/user/register">JOIN</a>
                         </li>
+                        <?php
+                        }
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link" href="#">CART</a>
                         </li>
@@ -65,8 +95,10 @@
     <h1>MY PAGE</h1>
 
     <div class="maypagewrap">
-        <div> 이름 :  <?php echo $_SESSION["u_name"]  ?></div> <br>
-        <div> 아이디 : <?php echo $_SESSION["u_id"] ?></div> <br>
+        <div> 이름 :  <?php echo $this->userinfo["u_name"] ?></div> <br>
+        <div> 아이디 : <?php echo $this->userinfo["u_id"] ?></div> <br>
+
+        <a href="/user/mypageup">수정하기</a>
     </div>
 
 
@@ -100,25 +132,11 @@
         
     </div>
 
-    <script type="text/javascript">
-    function test() {
-      var p1 = document.getElementById('password1').value;
-      var p2 = document.getElementById('password2').value;
-      
-      if(p1.length < 2) {
-              alert('입력한 글자가 2글자 이상이어야 합니다.');
-              return false;
-          }
-          
-          if( p1 != p2 ) {
-            alert("비밀번호불일치");
-            return false;
-          } else{
-            alert("비밀번호가 일치합니다");
-            return true;
-          }
-    }
-  </script>
+    <script>
+        function redirectLogout() {
+            location.href = "/user/logout";
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -45,7 +45,7 @@
                         <?php
                         if( isset( $_SESSION["u_id"]) ) {
                         ?>
-                        <p class="hiuser">안녕하세요! "<?php echo $_SESSION["u_id"] ?>" 님</p>
+                        <p class="hiuser">안녕하세요!<br> "<?php echo $_SESSION["u_id"] ?>" 님</p>
                         <a class="nav-link" class="nav-link" id="logout" onclick="redirectLogout()">LOGOUT</a>
                         <?php
                         } else {
@@ -264,10 +264,10 @@
 <!-- 그리드  -->
 <div class="wrapper">
     <figure>
-      <div class="post-image">
+    <div class="post-image">
         <img src="https://vittz.co.kr/shopimages/vittz/0630070013493.jpg?1683011268" alt="">
     </div>
-      <div class="post-image">
+    <div class="post-image">
         <img src="https://vittz.co.kr/shopimages/vittz/0630110004983.jpg?1667522020" alt="">
     </div>
     </figure>
