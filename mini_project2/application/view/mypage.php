@@ -11,8 +11,9 @@
     <style>
         .maypagewrap{
             text-align: center;
-            margin: 50px auto;
+            margin: 150px 0 350px;
         }
+        
     </style>
 
 </head>
@@ -21,14 +22,14 @@
     <!-- 네이게이션 바 -->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; border-bottom: 1px solid rgb(75, 75, 75);">
             <div class="container-fluid">
-            <a class="navbar-brand" href="/main">Navbar</a>
+                <a class="navbar-brand" href="/shop/main">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/main">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/shop/main">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">NEW</a>
@@ -98,7 +99,8 @@
         <div> 이름 :  <?php echo $this->userinfo["u_name"] ?></div> <br>
         <div> 아이디 : <?php echo $this->userinfo["u_id"] ?></div> <br>
 
-        <a href="/user/mypageup">수정하기</a>
+        <button type="submit" onclick="pwuserinfo()">비밀번호변경</button>
+        <button type="button" onclick="deluserinfo()">탈퇴하기</button>
     </div>
 
 
@@ -137,6 +139,7 @@
             location.href = "/user/logout";
         }
     </script>
+    <script src="/application/view/js/common.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

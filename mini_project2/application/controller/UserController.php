@@ -7,10 +7,12 @@ class UserController extends Controller {
         }
 
         public function loginPost() {
-            $result = $this->model->getUser($_POST);
-            $this->model->close(); // DB 파기
+            $arrPost = $_POST;
+            
+            $result = $this->model->getUser($arrPost, false, true);
 
-            $result[0]["u_pw"] === $_POST["u_pw"];
+            $this->model->close(); // DB 파기
+            // $result[0]["u_pw"] === $_POST["u_pw"];
             // 유저 유무 체크
             if(count($result) === 0) {
                 $errMsg = "* 입력하신 회원 정보가 없습니다.";
@@ -56,7 +58,7 @@ class UserController extends Controller {
             // ID 영문숫자 체크
             $patten = "/[^a-zA-Z0-9]/";
             if(preg_match($patten, $arrPost["id"]) !== 0) {
-                $arrChkErr["id"] = "ID는 영어 대문자, 영어 소문자, 숫자로만 입력해 주세요.";
+                $arrChkErr["id"] = "ID는 영어 대문자, 소문자, 숫자로만 입력해 주세요.";
                 $arrPost["id"] = "";
             }
 
@@ -87,7 +89,7 @@ class UserController extends Controller {
                 return "register"._EXTENSION_PHP;
             }
             
-            $result = $this->model->getUser($arrPost, false);
+            $result = $this->model->getUser($arrPost, false, false);
 
             // 유저 유무 체크
             if(count($result) !== 0) {
@@ -141,26 +143,59 @@ class UserController extends Controller {
             $arrPost = $_POST;
             $arrChkErr = [];
             // $this->model->close(); // DB 파기
-           $arrPost["id"] = $_SESSION["u_id"];
+            $arrPost["id"] = $_SESSION["u_id"];
 
-            // if($arrPost["pw"] !== $arrPost["pwChk"]) {
-            //     $arrChkErr["pwChk"] = "비밀번호가 일치하지 않습니다.";
-            // }
-            
+            if(mb_strlen($arrPost["pw"]) < 8 || mb_strlen($arrPost["pw"]) > 20 ) {
+                $arrChkErr["pw"] = "PW는 8~20글자로 입력해 주세요.";
+            }
+
+            if($arrPost["pw"] !== $arrPost["pwChk"]) {
+                $arrChkErr["pwChk"] = "비밀번호가 일치하지 않습니다.";
+            }
+
+            if(!empty($arrChkErr)) {
+                // 에러메세지 셋팅
+                $this->addDynamicProperty('arrError', $arrChkErr);
+                return "mypageup"._EXTENSION_PHP;
+            }
             
             $this->model->beginTransaction();
+
             if(!$this->model->detailUser($arrPost)) {
                 // 예외처리 롤백
                 $this->model->rollback();
                 echo "User Register ERROR";
                 exit();
             }
+
             $this->model->commit(); // 정상처리 커밋
 
 
-            return _BASE_REDIRECT."/user/mypage";
-
+            return _BASE_REDIRECT."/user/login";
         }
+
+        // 탈퇴하기
+        public function withdrawGet() {
+            $arrPost = $_POST;
+            $arrChkErr = [];
+            $arrPost["id"] = $_SESSION["u_id"];
+
+
+            $this->model->beginTransaction();
+            if(!$this->model->editUser($arrPost)) {
+                // 예외처리 롤백
+                $this->model->rollback();
+                echo "User Register ERROR";
+                exit();
+            }
+            $this->model->commit(); // 정상처리 커밋
+            session_unset();
+            session_destroy();
+
+            // 로그인 페이지 리턴
+            return "login"._EXTENSION_PHP;
+        }
+
 
 }
 

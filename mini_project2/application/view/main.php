@@ -13,14 +13,14 @@
     <!-- 네이게이션 바 -->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; border-bottom: 1px solid rgb(75, 75, 75);">
             <div class="container-fluid">
-            <a class="navbar-brand" href="/main">Navbar</a>
+            <a class="navbar-brand" href="/shop/main">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/main">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/shop/main">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">NEW</a>
@@ -112,117 +112,117 @@
         <!-- 카드 슬라이드 -->
         <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
             <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container d-block w-100">
-                    <h3>New Arrivals</h3>
-                    <div class="row row-xxl-4">
-                    <div class="col d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <a href=""><img src="https://www.iklamp.co.kr/data/item/1677729800/SNOWMAN221.1_TableStand_Butter.jpg" class="card-img-top" alt="..."></a>
-                            <div class="card-body">
-                            <h5 class="card-title">SNOWMAN22 SOLID Table Stand</h5>
-                            <p class="card-text">230,000원</p>
-                            <!-- <a href="#" class="btn btn-primary"style="background-color: #e3f2fd; color: #333;">구매하기</a> -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
-                                찜
-                            </button>
+                <h3>New Arrivals</h3>
+                <div class="carousel-item active">
+                    <div class="container d-block w-100">
+                        <div class="row row-xxl-4">
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <a href=""><img src="https://www.iklamp.co.kr/data/item/1677729800/SNOWMAN221.1_TableStand_Butter.jpg" class="card-img-top" alt="..."></a>
+                                <div class="card-body">
+                                <h5 class="card-title">SNOWMAN22 SOLID Table Stand</h5>
+                                <p class="card-text">230,000원</p>
+                                <!-- <a href="#" class="btn btn-primary"style="background-color: #e3f2fd; color: #333;">장바구니</a> -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://www.iklamp.co.kr/data/item/1677729789/SNOWBALL221.1_TableStand_Peach.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">SNOWBALL22 SOLID Table Stand</h5>
-                            <p class="card-text">210,000원</p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
-                                구매하기
-                            </button>
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr/data/item/1677729789/SNOWBALL221.1_TableStand_Peach.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">SNOWBALL22 SOLID Table Stand</h5>
+                                <p class="card-text">210,000원</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://www.iklamp.co.kr:443/data/item/1650346442/MARGRITTE25_Pendant_01_Black.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">MAGRITTE40 Pendant</h5>
-                            <p class="card-text">280,000원</p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
-                                구매하기
-                            </button>
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr:443/data/item/1650346442/MARGRITTE25_Pendant_01_Black.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">MAGRITTE40 Pendant</h5>
+                                <p class="card-text">280,000원</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://www.iklamp.co.kr/data/item/1668045904/FONDUE16_TableStand_Ivory.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">FONDUE16 Table Stand KYOBO BOOK Edition</h5>
-                            <p class="card-text">280,000원</p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
-                                구매하기
-                            </button>
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr/data/item/1668045904/FONDUE16_TableStand_Ivory.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">FONDUE16 Table Stand KYOBO BOOK Edition</h5>
+                                <p class="card-text">280,000원</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container d-block w-100">
-                    <div class="row row-xxl-4">
-                    <div class="col d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://www.iklamp.co.kr/data/item/1650346813/SLOPE45_Pendant_01_Blue.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">SLOPE45 SMART Pendant</h5>
-                            <p class="card-text">290,000원</p>
-                            <!-- <a href="#" class="btn btn-primary"style="background-color: #e3f2fd; color: #333;">구매하기</a> -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
-                                구매하기
-                            </button>
+                <div class="carousel-item">
+                    <div class="container d-block w-100">
+                        <div class="row row-xxl-4">
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr/data/item/1650346813/SLOPE45_Pendant_01_Blue.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">SLOPE45 SMART Pendant</h5>
+                                <p class="card-text">290,000원</p>
+                                <!-- <a href="#" class="btn btn-primary"style="background-color: #e3f2fd; color: #333;">장바구니</a> -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://www.iklamp.co.kr:443/data/item/1653355793/TRIANGLE120B_Pendant_01_Beech_re.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">TRIANGLE120 B Pendant</h5>
-                            <p class="card-text">390,000원</p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
-                                구매하기
-                            </button>
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr:443/data/item/1653355793/TRIANGLE120B_Pendant_01_Beech_re.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">TRIANGLE120 B Pendant</h5>
+                                <p class="card-text">390,000원</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://www.iklamp.co.kr/data/item/1680582778/WORKSHOP28_P_MossGreenGrayB.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">WORKSHOP28 Pendant</h5>
-                            <p class="card-text">150,000원</p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
-                                구매하기
-                            </button>
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr/data/item/1680582778/WORKSHOP28_P_MossGreenGrayB.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">WORKSHOP28 Pendant</h5>
+                                <p class="card-text">150,000원</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://www.iklamp.co.kr:443/data/item/1617695104/0.JPG" class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">F-LED G125 (6w, E26, Dimmable)</h5>
-                            <p class="card-text">6,400원</p>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
-                                구매하기
-                            </button>
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr:443/data/item/1617695104/0.JPG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">F-LED G125 (6w, E26, Dimmable)</h5>
+                                <p class="card-text">6,400원</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
 
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev" style="width: 10%;">
@@ -235,10 +235,126 @@
             </button>
         </div>
 
+        <!-- 상품 그리드 -->
+        <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+            <div class="carousel-inner">
+                <h3>Best Arrivals</h3>
+                <div class="carousel-item active">
+                    <div class="container d-block w-100">
+                        <div class="row row-xxl-4">
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <a href=""><img src="https://www.iklamp.co.kr:443/data/item/1647499397/APOLLO22_TABLESTAND_01_COBALTBLUE.jpg" class="card-img-top" alt="..."></a>
+                                <div class="card-body">
+                                <h5 class="card-title">SNOWMAN22 SOLID Table Stand</h5>
+                                <p class="card-text">230,000원</p>
+                                <!-- <a href="#" class="btn btn-primary"style="background-color: #e3f2fd; color: #333;">장바구니</a> -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr/data/item/1617695049/0.JPG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">SNOWBALL22 SOLID Table Stand</h5>
+                                <p class="card-text">210,000원</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr/data/item/1563770151/2019_09_23_113702.JPG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">MAGRITTE40 Pendant</h5>
+                                <p class="card-text">280,000원</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr/data/item/1591684729/2020_07_30_153372.JPG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">FONDUE16 Table Stand KYOBO BOOK Edition</h5>
+                                <p class="card-text">280,000원</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container d-block w-100">
+                        <div class="row row-xxl-4">
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr/data/item/1650346813/SLOPE45_Pendant_01_Blue.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">SLOPE45 SMART Pendant</h5>
+                                <p class="card-text">290,000원</p>
+                                <!-- <a href="#" class="btn btn-primary"style="background-color: #e3f2fd; color: #333;">장바구니</a> -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr:443/data/item/1653355793/TRIANGLE120B_Pendant_01_Beech_re.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">TRIANGLE120 B Pendant</h5>
+                                <p class="card-text">390,000원</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr/data/item/1680582778/WORKSHOP28_P_MossGreenGrayB.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">WORKSHOP28 Pendant</h5>
+                                <p class="card-text">150,000원</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://www.iklamp.co.kr:443/data/item/1617695104/0.JPG" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">F-LED G125 (6w, E26, Dimmable)</h5>
+                                <p class="card-text">6,400원</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: transparent; color: #333;">
+                                    장바구니
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- 모달 -->
         <!-- Button trigger modal -->
     <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        구매하기
+        장바구니
     </button> -->
 
     <!-- Modal -->
@@ -250,12 +366,11 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                스몰 로고 반팔 티셔츠
+                해당 상품을 장바구니에 담겠습니까?
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
             <button type="button" class="btn btn-primary">장바구니 담기</button>
-            <button type="button" class="btn btn-primary">즉시 구매</button>
             </div>
         </div>
         </div>
@@ -263,6 +378,7 @@
 
 <!-- 그리드  -->
 <div class="wrapper">
+    <!-- <h3>Review</h3> -->
     <figure>
     <div class="post-image">
         <img src="https://vittz.co.kr/shopimages/vittz/0630070013493.jpg?1683011268" alt="">

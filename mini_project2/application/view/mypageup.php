@@ -9,9 +9,13 @@
     <link rel="stylesheet"  type="text/css" href="/application/view/css/login.css">
     <title>Join</title>
     <style>
-        .maypagewrap{
+        .maypageupwrap{
             text-align: center;
-            margin: 50px auto;
+            margin: 150px 0 350px;
+        }
+        .arr {
+            font-size: 13px;
+            color: red;
         }
     </style>
 
@@ -21,14 +25,14 @@
     <!-- 네이게이션 바 -->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent; border-bottom: 1px solid rgb(75, 75, 75);">
             <div class="container-fluid">
-            <a class="navbar-brand" href="/main">Navbar</a>
+            <a class="navbar-brand" href="/shop/main">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/main">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/shop/main">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">NEW</a>
@@ -93,31 +97,37 @@
 
         <!-- 마이페이지 수정 폼 -->
     <h1>UPDATE PAGE</h1>
-
-    
-    
-    <div> 이름 :  <?php echo $this->userinfo["u_name"] ?></div>
-    <br>
-    <div> 아이디 : <?php echo $this->userinfo["u_id"] ?></div>
-    <br>
-    <form action="/user/mypageup" method="post">
-        <div class="con">
-            <label for="pw">PW</label>
-            <input type="password" id="pw" name="pw" placeholder="비밀번호" required>
+    <div class="maypageupwrap">
+        <!-- <div> 이름 :  <?php //echo $this->userinfo["u_name"] ?></div>
+        <br>
+        <div> 아이디 : <?php //echo $this->userinfo["u_id"] ?></div>
+        <br> -->
+        <form action="/user/mypageup" method="post">
+            <div class="con">
+                <label for="pw">PW</label>
+                <input type="password" id="pw" name="pw" placeholder="비밀번호" required>
+                <br>
+                <span class="arr">
+                    <?php if(isset($this->arrError["pw"])) {
+                        echo $this->arrError["pw"];
+                    } ?>
+                </span>
+            </div>
             <br>
-            <span class="arr">
-                <?php if(isset($this->arrError["pw"])) {
-                    echo $this->arrError["pw"];
+            <div class="con">
+                <label for="pwChk">PW Check</label>
+                <input type="password" id="pwChk" name="pwChk" placeholder="비밀번호 확인" required>
+                <br>
+                <span class="arr">
+                <?php if(isset($this->arrError["pwChk"])) {
+                        echo $this->arrError["pwChk"];
                 } ?>
-            </span>
-        </div>
-        <br>
-        <br>
-        
-            <button type="submit">수정완료</button>
-            <button type="button">탈퇴하기</button>
-        </div>
-    </form>
+                </span>
+            </div>
+            <br>
+                <button type="submit" onclick="edituserinfo()">수정완료</button>
+        </form>
+    </div>
 
     <!-- footer -->
     
@@ -154,6 +164,7 @@
             location.href = "/user/logout";
         }
     </script>
+    <script src="/application/view/js/common.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

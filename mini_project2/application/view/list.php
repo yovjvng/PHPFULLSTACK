@@ -71,7 +71,7 @@
 
     <div class="joinwrap">
         <form action="/user/register" method="POST">
-            <p><input type="text" name="id" placeholder="아이디" required></p>
+            <p><input type="text" name="id" placeholder="아이디" required maxlength="12"></p>
             <p><input type="password" id="password1" name="pw" placeholder="비밀번호" required></p>
             <p><input type="password" id="password2" name="pw_confirm" placeholder="비밀번호 확인" required></p>
             <p><input type="submit" value="회원 가입"></p>

@@ -3,7 +3,7 @@
 namespace application\model;
 
 class UserModel extends Model{
-    public function getUser($arrUserInfo, $pwFlg = true) {
+    public function getUser($arrUserInfo, $pwFlg = true, $delFlg = false) {
         $sql = " select * FROM user_info WHERE u_id = :id ";
 
         // PW 추가할 경우 _동적쿼리
@@ -17,6 +17,10 @@ class UserModel extends Model{
         // PW 추가할 경우 _동적쿼리
         if($pwFlg) {
             $prepare[":pw"] = $arrUserInfo["pw"];
+        }
+        // 삭제플래그 추가
+        if($delFlg) {
+            $sql .= " and u_comp_flg = '0' ";
         }
 
         try {
@@ -83,6 +87,28 @@ class UserModel extends Model{
         $prepare = [
             ":u_id" => $arrUserInfo["id"]
             , ":u_pw" => $arrUserInfo["pw"]
+        ];
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $result = $stmt->execute($prepare);
+            return $result;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function editUser($arrUserInfo) {
+        $sql = " UPDATE "
+        ." user_info "
+        ." SET "
+        ." u_comp_flg = '1' "
+        ." WHERE "
+        ." u_id = :u_id "
+        ;
+
+        $prepare = [
+            ":u_id" => $arrUserInfo["id"]
         ];
 
         try {
