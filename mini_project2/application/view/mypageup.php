@@ -11,11 +11,14 @@
     <style>
         .maypageupwrap{
             text-align: center;
-            margin: 150px 0 350px;
+            margin: 150px 0 300px;
         }
         .arr {
             font-size: 13px;
             color: red;
+        }
+        .contwrap {
+            margin-top: 50px;
         }
     </style>
 
@@ -96,37 +99,40 @@
 
 
         <!-- 마이페이지 수정 폼 -->
-    <h1>UPDATE PAGE</h1>
-    <div class="maypageupwrap">
-        <!-- <div> 이름 :  <?php //echo $this->userinfo["u_name"] ?></div>
-        <br>
-        <div> 아이디 : <?php //echo $this->userinfo["u_id"] ?></div>
-        <br> -->
-        <form action="/user/mypageup" method="post">
-            <div class="con">
-                <label for="pw">PW</label>
-                <input type="password" id="pw" name="pw" placeholder="비밀번호" required>
+    <div class="contwrap">
+        <h1>UPDATE PAGE</h1>
+        <div class="maypageupwrap">
+            <!-- <div> 이름 :  <?php //echo $this->userinfo["u_name"] ?></div>
+            <br>
+            <div> 아이디 : <?php //echo $this->userinfo["u_id"] ?></div>
+            <br> -->
+            <form action="/user/mypageup" method="post">
+                <div class="con">
+                    <label for="pw">PW</label>
+                    <input type="password" id="pw" name="pw" placeholder="비밀번호" required>
+                    <br>
+                    <span class="arr">
+                        <?php if(isset($this->arrError["pw"])) {
+                            echo $this->arrError["pw"];
+                        } ?>
+                    </span>
+                </div>
                 <br>
-                <span class="arr">
-                    <?php if(isset($this->arrError["pw"])) {
-                        echo $this->arrError["pw"];
+                <div class="con">
+                    <label for="pwChk">PW Check</label>
+                    <input type="password" id="pwChk" name="pwChk" placeholder="비밀번호 확인" required>
+                    <br>
+                    <span class="arr">
+                    <?php if(isset($this->arrError["pwChk"])) {
+                            echo $this->arrError["pwChk"];
                     } ?>
-                </span>
-            </div>
-            <br>
-            <div class="con">
-                <label for="pwChk">PW Check</label>
-                <input type="password" id="pwChk" name="pwChk" placeholder="비밀번호 확인" required>
+                    </span>
+                </div>
                 <br>
-                <span class="arr">
-                <?php if(isset($this->arrError["pwChk"])) {
-                        echo $this->arrError["pwChk"];
-                } ?>
-                </span>
-            </div>
-            <br>
-                <button type="submit" onclick="edituserinfo()">수정완료</button>
-        </form>
+                    <button type="submit" class="btn btn-outline-secondary" onclick="edituserinfo()">수정완료</button>
+                    <button type="button" class="btn btn-outline-secondary" onclick="backuserinfo()">취소</button>
+            </form>
+        </div>
     </div>
 
     <!-- footer -->

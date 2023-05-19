@@ -76,7 +76,7 @@
             } ?>
             <div class="join_form">
                 <div class="textb">
-                    <input type="text" id="name" name="name" placeholder="이름" maxlength="30" required value="<?php echo isset($_POST["name"]) ? $_POST["name"] : ""; ?>">
+                    <input type="text" id="name" name="name" placeholder="이름" maxlength="30" required value="<?php echo (isset($this->inputData["name"]) ? $this->inputData["name"] : "" ) ?>">
                     <br>
                     <span class="arr">
                     <?php if(isset($this->arrError["name"])) {
@@ -86,9 +86,9 @@
                 </div>
                 <br>
                 <div class="textb">
-                    <input type="text" id="id" name="id" placeholder="아이디" required maxlength="12">
+                    <input type="text" id="id" name="id" placeholder="아이디" required maxlength="12" value="<?php echo (isset($this->inputData["id"]) ? $this->inputData["id"] : "" ) ?>">
                     <br>
-                    <button class="chkbtn" type="button" onclick="chkDuplicationId();">중복확인</button>
+                    <button class="chkbtn" type="button" onclick="chkDuplicationId(this);" >중복확인</button>
                     <span id="errMsgId" class="arr">
                         <?php if(isset($this->arrError["id"])) {
                             echo $this->arrError["id"];
@@ -97,10 +97,10 @@
                 </div>
                 <br>
                 <div class="textb">
-                    <input type="password" id="pw" name="pw" placeholder="비밀번호" required maxlength="20">
+                    <input type="password" id="pw" name="pw" placeholder="비밀번호" required maxlength="20" onkeyup="chkDuplicationPw(this);">
                     <!-- <div class="show-password fas fa-eye-slash"></div> -->
                     <br>
-                    <span class="arr">
+                    <span id="errMsgPw" class="arr">
                     <?php if(isset($this->arrError["pw"])) {
                             echo $this->arrError["pw"];
                     } ?>
@@ -108,16 +108,16 @@
                 </div>
                 <br>
                 <div class="textb">
-                    <input type="password" id="pwChk" name="pwChk" placeholder="비밀번호 확인" required maxlength="20">
+                    <input type="password" id="pwChk" name="pwChk" placeholder="비밀번호 확인" required maxlength="20" onkeyup="chkDuplicationpwChk(this);">
                     <br>
-                    <span class="arr">
+                    <span id="errMsgPwChk" class="arr">
                     <?php if(isset($this->arrError["pwChk"])) {
                             echo $this->arrError["pwChk"];
                     } ?>
                     </span>
                 </div>
                 <br>
-                <button class="login_btn fas fa-arrow-right" type="submit" value="회원 가입">회원가입</button>
+                <button class="login_btn fas fa-arrow-right" type="submit" >join</button>
             </form>
         </div>
     </div>

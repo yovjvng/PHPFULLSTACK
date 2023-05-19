@@ -11,9 +11,11 @@
     <style>
         .maypagewrap{
             text-align: center;
-            margin: 150px 0 350px;
+            margin: 150px 0 300px;
         }
-        
+        .contwrap {
+            margin-top: 50px;
+        }
     </style>
 
 </head>
@@ -93,14 +95,16 @@
 
 
         <!-- 마이페이지 폼 -->
-    <h1>MY PAGE</h1>
+    <div class="contwrap">
+        <h1>MY PAGE</h1>
 
-    <div class="maypagewrap">
-        <div> 이름 :  <?php echo $this->userinfo["u_name"] ?></div> <br>
-        <div> 아이디 : <?php echo $this->userinfo["u_id"] ?></div> <br>
+        <div class="maypagewrap">
+            <div> 이름 :  <?php echo $this->userinfo["u_name"] ?></div> <br>
+            <div> 아이디 : <?php echo $this->userinfo["u_id"] ?></div> <br>
 
-        <button type="submit" onclick="pwuserinfo()">비밀번호변경</button>
-        <button type="button" onclick="deluserinfo()">탈퇴하기</button>
+            <button type="submit" class="btn btn-outline-secondary" onclick="pwuserinfo()">비밀번호변경</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="deluserinfo()">탈퇴하기</button>
+        </div>
     </div>
 
 
