@@ -154,3 +154,28 @@ Route::get('/makesign', function() {
 Route::get('/sign', function() {
     return "Sign!!";
 })->name('sign')->middleware('signed');
+
+
+// ------------------
+// 컨트롤러
+// ------------------
+// 커멘드로 컨트롤러 생성 : php artisan make:controller TestController
+use App\Http\Controllers\TestController;
+Route::get('/test', [TestController::class, 'index'])->name('tests.index');
+
+
+// 커멘드롤 컨트롤러 생성 : php artisan make:controller TaskController --resource 
+use App\Http\Controllers\TaskController;
+Route::resource('/tasks', TaskController::class);
+// GET|HEAD        tasks ........................................................................................ tasks.index › TaskController@index  
+// POST            tasks ........................................................................................ tasks.store › TaskController@store  
+// GET|HEAD        tasks/create ............................................................................... tasks.create › TaskController@create  
+// GET|HEAD        tasks/{task} ................................................................................... tasks.show › TaskController@show  
+// PUT|PATCH       tasks/{task} ............................................................................... tasks.update › TaskController@update  
+// DELETE          tasks/{task} ............................................................................. tasks.destroy › TaskController@destroy  
+// GET|HEAD        tasks/{task}/edit .............................................................................. tasks.edit › TaskController@edit  
+
+
+// ------------------
+use App\Http\Controllers\BladeController;
+Route::get('/blade', [BladeController::class, 'index'])->name('blade.index');
