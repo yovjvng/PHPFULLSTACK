@@ -177,5 +177,14 @@ Route::resource('/tasks', TaskController::class);
 
 
 // ------------------
+// 블레이드 템플릿
+// ------------------
 use App\Http\Controllers\BladeController;
 Route::get('/blade', [BladeController::class, 'index'])->name('blade.index');
+
+
+use App\Http\Controllers\BoardController;
+// Route::get('/board', [BoardController::class, 'index'])->name('board.index');
+// Controller 만들때 --resource 옵션을 주었어서 자동으로 전부 셋팅
+Route::resource('/board', BoardController::class);
+
