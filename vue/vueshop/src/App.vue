@@ -1,11 +1,56 @@
 <template>
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <img id="logo" alt="Vue logo" src="./assets/logo.png" />
+    <!-- 네비 -->
+    <Navi :navList="navList" />
+    <!-- <div class="nav">
+        <ul>
+            <li>HOME</li>
+            <li>PRODUCTS</li>
+            <li>ETC</li>
+        </ul>
+    </div> -->
+
+    <!-- 모달 -->
+    <Modal @closeModal="modalFlg = false" :modalFlg="modalFlg" />
+    <!-- <div class="bg_black" v-if="modalFlg">
+        <button @click="modalFlg = false">X</button>
+        <div class="bg_white">
+            <img :src="products[productNum].img" />
+            <h4>{{ products[productNum].name }}</h4>
+            <p>{{ products[productNum].content }}</p>
+            <p>
+                {{ products[productNum].price * products[productNum].count }}원
+            </p>
+            <button @click="plus(productNum)">+</button
+            ><span>{{ products[productNum].count }}</span>
+            <button @click="minus(productNum)">-</button>
+        </div>
+    </div> -->
 
     <!-- 반복문 -->
-    <div v-for="(item, i) in products" :key="i">
+    <ProductList
+        @openModal="modalFlg = true; productNum = i;"
+        :product="product"
+        v-for="(product, i) in products"
+        :key="i"
+    />
+    <!-- <div class="pro" v-for="(item, i) in products" :key="i">
+        <img
+            :style="styleW"
+            :src="item.img"
+            alt=""
+            @click="
+                modalFlg = true;
+                productNum = i;
+            "
+        />
         <h4>{{ item.name }}</h4>
         <p>{{ item.price }}원</p>
-    </div>
+        <p>{{ item.count }}개</p>
+    </div> -->
+
+    <!-- if -->
+    <!-- <p v-if="1 == 1">if문 테스트</p> -->
 
     <!-- <div>
         <h4>{{ product1 }}</h4>
@@ -18,16 +63,21 @@
 </template>
 
 <script>
+import data from "./assets/js/data.js";
+
+import Navi from "./components/Navi.vue";
+import ProductList from "./components/ProductList.vue";
+import Modal from "./components/Modal.vue";
+
 export default {
     name: "App",
     data() {
         // 데이터 바인딩
         return {
-            products: [
-                { name: "티셔츠", price: "3000" },
-                { name: "바지", price: "5000" },
-                { name: "점퍼", price: "10000" },
-            ],
+            navList: ["HOME", "PRODUCTS", "ETC"],
+            products: data,
+            modalFlg: false,
+            productNum: 0,
             product1: "양말",
             price1: "3800",
             product2: "바지",
@@ -35,10 +85,35 @@ export default {
             styleR: "color:red",
         };
     },
+    methods: {
+        // 함수를 설정하는 영역
+        plus(i) {
+            this.products[i].count++;
+        },
+        minus(i) {
+            // if (this.products[i].count > 0) {
+            //     this.products[i].count--;
+            // }
+            this.products[i].count--;
+        },
+        openModal(i) {
+            this.modalFlg = true;
+            this.productNum = i;
+        },
+    },
+    components: {
+        // 컴포넌트 정의
+        // Navi  --> 이름이 똑같을 시 하나만 적어저도 됨
+        Navi: Navi,
+        ProductList,
+        Modal,
+    },
 };
 </script>
 
 <style>
+@import url("./assets/css/app.css");
+
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
