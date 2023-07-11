@@ -10,8 +10,42 @@
         </ul>
     </div> -->
 
+    <div class="discount">
+        <p>지금 당장 구매하시면, {{ timer }}% 할인</p>
+    </div>
+    <!-- <button @click="hookTest = !hookTest">훅 테스트</button>
+    {{ hookTest }} -->
+    <br />
+    <!-- v-modal 테스트 -->
+    <!-- <br /> -->
+    <!-- <input type="text" @input="inputTest = $event.target.value" /> -->
+    <!-- <input type="text" v-model="inputTest" />
+    <br />
+    <span>{{ inputTest }}</span>
+    <br /> -->
     <!-- 모달 -->
-    <Modal @closeModal="modalFlg = false" :modalFlg="modalFlg" />
+    <!-- <div class="startTransition" :class="{ endTransition: modalFlg }"> -->
+    <!-- 모달 애니메이션 효과 -->
+    <transition name="modalTransition">
+        <Modal
+            @closeModal="
+                modalFlg = false;
+                inputTest = '';
+            "
+            :modalFlg="modalFlg"
+            :products="products"
+            :productNum="productNum"
+        />
+    </transition>
+    <!-- </div> -->
+    <!-- <Modal
+        @closeModal="modalFlg = false"
+        @plus="plus(productNum)"
+        @minus="minus(productNum)"
+        :modalFlg="modalFlg"
+        :products="products"
+        :productNum="productNum"
+    /> -->
     <!-- <div class="bg_black" v-if="modalFlg">
         <button @click="modalFlg = false">X</button>
         <div class="bg_white">
@@ -29,7 +63,10 @@
 
     <!-- 반복문 -->
     <ProductList
-        @openModal="modalFlg = true; productNum = i;"
+        @openModal="
+            modalFlg = true;
+            productNum = i;
+        "
         :product="product"
         v-for="(product, i) in products"
         :key="i"
@@ -74,6 +111,10 @@ export default {
     data() {
         // 데이터 바인딩
         return {
+            timer: 20,
+            // flg: false,
+            // hookTest: false,
+            inputTest: "",
             navList: ["HOME", "PRODUCTS", "ETC"],
             products: data,
             modalFlg: false,
@@ -85,16 +126,43 @@ export default {
             styleR: "color:red",
         };
     },
+    // updated() {
+    //     this.flg = "true";
+    // },
+    mounted() {
+        const stop = setInterval(() => {
+            this.timer--;
+            if (this.timer < 1) {
+                clearInterval(stop);
+            }
+        }, 1000);
+    },
+
+    watch: {
+        // 실시간 감시 함수 정의 영역
+        // inputTest(input) {
+        //     if (input == 3) {
+        //         alert("3333");
+        //         this.inputTest = "";
+        //     }
+        // },
+        inputTest(input) {
+            if (input == 3) {
+                alert("3333");
+                this.inputTest = "";
+            }
+        },
+    },
     methods: {
         // 함수를 설정하는 영역
         plus(i) {
             this.products[i].count++;
         },
         minus(i) {
-            // if (this.products[i].count > 0) {
-            //     this.products[i].count--;
-            // }
-            this.products[i].count--;
+            if (this.products[i].count > 0) {
+                this.products[i].count--;
+            }
+            // this.products[i].count--;
         },
         openModal(i) {
             this.modalFlg = true;
@@ -103,7 +171,7 @@ export default {
     },
     components: {
         // 컴포넌트 정의
-        // Navi  --> 이름이 똑같을 시 하나만 적어저도 됨
+        // Navi  --> 이름이 똑같을 시 하나만 적어줘도 됨
         Navi: Navi,
         ProductList,
         Modal,

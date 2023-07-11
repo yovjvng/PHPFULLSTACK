@@ -1,13 +1,25 @@
 <template>
     <div class="bg_black" v-if="modalFlg">
-        <button @click="$emit('closeModal')">X</button>
+        <!-- $emit : 상위 클래스로 메세지 전달 -->
+        <button
+            class="btn"
+            @click="
+                $emit('closeModal');
+                inputTest = 0;
+            "
+        >
+            X
+        </button>
         <div class="bg_white">
-            <img src="" />
-            <h4>{{ product[productNum].name }}</h4>
-            <p>{{ product[productNum].content }}</p>
-            <p>{{ product[productNum].price }}</p>
-            <button>+</button><span>1</span>
-            <button>-</button>
+            <img :src="products[productNum].img" />
+            <h4>{{ products[productNum].name }}</h4>
+            <p>{{ products[productNum].content }}</p>
+            <p>{{ inputTest * products[productNum].price }}</p>
+            <input type="text" v-model="inputTest" />
+            <!-- <span>{{ inputTest * products[productNum].price }}</span> -->
+            <!-- <button @click="$emit('plus')">+</button>
+            <span>{{ products[productNum].count }}</span>
+            <button @click="$emit('minus')">-</button> -->
         </div>
     </div>
 </template>
@@ -16,7 +28,23 @@ export default {
     name: "Modal",
     props: {
         modalFlg: Boolean,
-        product: Object,
+        products: Array,
+        productNum: Number,
+    },
+    data() {
+        // 데이터 바인딩
+        return {
+            inputTest: 0,
+        };
+    },
+    watch: {
+        // 실시간 감시 함수 정의 영역
+        inputTest(input) {
+            if (input > 10) {
+                alert("10개까지만 구매 가능합니다.");
+                this.inputTest = 10;
+            }
+        },
     },
 };
 </script>

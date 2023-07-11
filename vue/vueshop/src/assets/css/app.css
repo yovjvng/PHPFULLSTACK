@@ -28,12 +28,49 @@ li {
 }
 .bg_white {
     width: 80%;
+    height: 500px;
     background-color: white;
     border-radius: 10px;
     margin: 0 auto;
 }
-button {
+.btn {
     border-radius: 50%;
     width: 50px;
     height: 50px;
+}
+.discount {
+    background-color: beige;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: xx-large;
+}
+/* .startTransition {
+    opacity: 0;
+    transition: all 0.7s;
+}
+.endTransition {
+    opacity: 1;
+} */
+
+/* 등장 애니메이션 */
+.modalTransition-enter-from {
+    opacity: 0;
+}
+.modalTransition-enter-active {
+    transition: all 0.7s;
+}
+.modalTransition-enter-to {
+    opacity: 1;
+}
+
+/* 퇴장 애니메이션 */
+.modalTransition-leave-from {
+    opacity: 1;
+}
+.modalTransition-leave-active {
+    transition: all 0.7s;
+}
+.modalTransition-leave-to {
+    opacity: 0;
 }
